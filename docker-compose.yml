@@ -9,7 +9,7 @@ services:
       - ./backend:/app
     ports:
       - "3000:3000"
-    command: ["npm", "start"]
+    # command: ["npm", "dev"]
     depends_on:
       - database 
 
@@ -21,7 +21,7 @@ services:
       - ./frontend:/app
     ports:
       - "80:80"
-    command: ["npm", "start"]
+    # command: ["npm", "dev"]
     depends_on:
       - backend
 
