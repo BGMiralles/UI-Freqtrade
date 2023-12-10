@@ -9,9 +9,10 @@ services:
       - ./backend:/app
     ports:
       - "3000:3000"
-    # command: ["npm", "dev"]
     depends_on:
-      - database 
+      - database
+    networks:
+      - mynetwork
 
   frontend:
     image: node:14-alpine
@@ -21,9 +22,10 @@ services:
       - ./frontend:/app
     ports:
       - "80:80"
-    # command: ["npm", "dev"]
     depends_on:
       - backend
+    networks:
+      - mynetwork
 
   freqtrade:
     image: freqtradeorg/freqtrade:stable
@@ -35,6 +37,8 @@ services:
       FREQTRADE_USER_DATA_PATH: /freqtrade/user_data
     depends_on:
       - database
+    networks:
+      - mynetwork
 
   database:
     image: mysql:latest
@@ -43,3 +47,9 @@ services:
       - .env
     ports:
       - "3306:3306"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
