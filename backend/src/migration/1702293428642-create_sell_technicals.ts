@@ -23,6 +23,18 @@ export class CreateSellTechnicals1702293428642 implements MigrationInterface {
                         type: "int",
                       },
                 ],
+                foreignKeys: [
+                    {
+                      columnNames: ["sell_signal_id"],
+                      referencedTableName: "sell_signal",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["technical_resources_id"],
+                      referencedTableName: "technical_resources",
+                      referencedColumnNames: ["id"],
+                    },
+                  ],
             }),
             true
         );
