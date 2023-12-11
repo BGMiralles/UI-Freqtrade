@@ -12,6 +12,10 @@ import { CreateBuySignals1702293089937 } from "./migration/1702293089937-create_
 import { CreateSellSignals1702291882434 } from "./migration/1702291882434-create_sell_signals"
 import { BuySignal } from "./models/BuySignal"
 import { SellSignal } from "./models/SellSignal"
+import { CreateSellTechnicals1702293428642 } from "./migration/1702293428642-create_sell_technicals"
+import { SellTechnical } from "./models/SellTechnical"
+import { CreateBuyTechnicals1702293670740 } from "./migration/1702293670740-create_buy_technicals"
+import { BuyTechnical } from "./models/BuyTechnical"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -20,13 +24,15 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User, Role, TechnicalResource, BuySignal, SellSignal],
+  entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical],
   migrations: [
     CreateUsersTable1698050881658,
     RoleFkAtUsers1702290088419,
     CreateTechnicalResources1702291424267,
     CreateBuySignals1702293089937,
-    CreateSellSignals1702291882434
+    CreateSellSignals1702291882434,
+    CreateSellTechnicals1702293428642,
+    CreateBuyTechnicals1702293670740
   ],
   synchronize: false,
   logging: false,
