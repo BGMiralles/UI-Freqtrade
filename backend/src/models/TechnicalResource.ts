@@ -30,4 +30,18 @@ export class TechnicalResource extends BaseEntity{
     },
   })
   sellTechnicals?: TechnicalResource[];
+
+  @ManyToMany(() => TechnicalResource)
+  @JoinTable({
+    name: "buy_technicals",
+    joinColumn: {
+      name: "technical_resources_id",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "buy_signal_id",
+      referencedColumnName: "id",
+    },
+  })
+  buyTechnicals?: TechnicalResource[];
 }

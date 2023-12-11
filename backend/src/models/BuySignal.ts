@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm"
+import { TechnicalResource } from "./TechnicalResource"
 
 @Entity("buy_signals")
 export class BuySignal extends BaseEntity{
@@ -25,4 +26,18 @@ export class BuySignal extends BaseEntity{
   
   @Column()
   updated_at!: Date
+
+  @ManyToMany(() => TechnicalResource)
+  @JoinTable({
+    name: "buy_technicals",
+    joinColumn: {
+      name: "buy_signal_id",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "technical_resources_id",
+      referencedColumnName: "id",
+    },
+  })
+  buyTechnicals?: TechnicalResource[];
 }
