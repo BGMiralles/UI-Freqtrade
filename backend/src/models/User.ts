@@ -1,5 +1,4 @@
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm"
-import { Task } from "./Task"
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -8,40 +7,26 @@ export class User extends BaseEntity {
   id!: number
 
   @Column()
-  username!: string
+  name!: string
+  
+  @Column()
+  nickname!: string
 
   @Column()
   email!: string
 
   @Column()
   password!: string
+  
+  @Column()
+  role_id!: number
 
   @Column()
   is_active!: boolean
-  
-  @Column()
-  role!: string
-  
+    
   @Column()
   created_at!: Date
   
   @Column()
   updated_at!: Date
-
-  @OneToMany(() => Task, (task) => task.user)
-  tasks!: Task[];
-
-  @ManyToMany(() => Task)
-  @JoinTable({
-    name: "task_user",
-    joinColumn: {
-      name: "user_id",
-      referencedColumnName: "id",
-    },
-    inverseJoinColumn:{
-      name: "task_id",
-      referencedColumnName: "id"
-    }
-  })
-  userTasks!: Task[]
 }

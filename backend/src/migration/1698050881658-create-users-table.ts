@@ -14,7 +14,12 @@ export class CreateUsersTable1698050881658 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
-                        name: "username",
+                        name: "name",
+                        type: "varchar",
+                        length: "50"
+                    },
+                    {
+                        name: "nickname",
                         type: "varchar",
                         length: "50"
                     },
@@ -30,15 +35,13 @@ export class CreateUsersTable1698050881658 implements MigrationInterface {
                         length: "200"
                     },
                     {
+                        name: "role_id",
+                        type: "int",
+                    },
+                    {
                         name: "is_active",
                         type: "boolean",
                         default: true
-                    },
-                    {
-                        name: "role",
-                        type: "enum",
-                        enum: ["user", "admin", "super_admin"],
-                        default: '"user"'
                     },
                     {
                         name: "created_at",
