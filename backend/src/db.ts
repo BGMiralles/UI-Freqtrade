@@ -2,7 +2,6 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import 'dotenv/config'
 
-import { CreateUsersTable1698050881658 } from "./migration/1698050881658-create-users-table"
 import { User } from "./models/User"
 import { RoleFkAtUsers1702290088419 } from "./migration/1702290088419-role_fk_at_users"
 import { Role } from "./models/Role"
@@ -16,6 +15,7 @@ import { CreateSellTechnicals1702293428642 } from "./migration/1702293428642-cre
 import { SellTechnical } from "./models/SellTechnical"
 import { CreateBuyTechnicals1702293670740 } from "./migration/1702293670740-create_buy_technicals"
 import { BuyTechnical } from "./models/BuyTechnical"
+import { CreateUsersTable1702296323232 } from "./migration/1702296323232-create_users_table"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -26,8 +26,8 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical],
   migrations: [
-    CreateUsersTable1698050881658,
     RoleFkAtUsers1702290088419,
+    CreateUsersTable1702296323232,
     CreateTechnicalResources1702291424267,
     CreateBuySignals1702293089937,
     CreateSellSignals1702291882434,

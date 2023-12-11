@@ -42,6 +42,13 @@ export class CreateSellSignals1702291882434 implements MigrationInterface {
                         onUpdate: "CURRENT_TIMESTAMP"                 
                     },
                 ],
+                foreignKeys: [
+                    {
+                      columnNames: ["sell_technical_id"],
+                      referencedTableName: "sell_technical",
+                      referencedColumnNames: ["id"],
+                    },
+                  ],
             }),
             true
         );
