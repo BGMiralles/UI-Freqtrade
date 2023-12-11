@@ -1,32 +1,6 @@
 version: '3.8'
 
 services:
-  backend:
-    image: node:14-alpine
-    container_name: backend_container
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - database
-    networks:
-      - mynetwork
-
-  frontend:
-    image: node:14-alpine
-    container_name: frontend_container
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-    networks:
-      - mynetwork
-
   freqtrade:
     image: freqtradeorg/freqtrade:stable
     container_name: freqtrade_container
@@ -35,21 +9,3 @@ services:
     environment:
       FREQTRADE_CONFIG_PATH: /freqtrade/user_data/config.json
       FREQTRADE_USER_DATA_PATH: /freqtrade/user_data
-    depends_on:
-      - database
-    networks:
-      - mynetwork
-
-  database:
-    image: mysql:latest
-    container_name: mysql_container
-    env_file:
-      - .env
-    ports:
-      - "3306:3306"
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
-    driver: bridge
