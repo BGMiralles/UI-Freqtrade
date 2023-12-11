@@ -42,6 +42,13 @@ export class CreateBuySignals1702293089937 implements MigrationInterface {
                         onUpdate: "CURRENT_TIMESTAMP"                 
                     },
                 ],
+                foreignKeys: [
+                    {
+                      columnNames: ["buy_technical_id"],
+                      referencedTableName: "buy_technical",
+                      referencedColumnNames: ["id"],
+                    },
+                  ],
             }),
             true
         );
