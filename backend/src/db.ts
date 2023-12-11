@@ -8,6 +8,10 @@ import { RoleFkAtUsers1702290088419 } from "./migration/1702290088419-role_fk_at
 import { Role } from "./models/Role"
 import { CreateTechnicalResources1702291424267 } from "./migration/1702291424267-create_technical_resources"
 import { TechnicalResource } from "./models/TechnicalResource"
+import { CreateBuySignals1702293089937 } from "./migration/1702293089937-create_buy_signals"
+import { CreateSellSignals1702291882434 } from "./migration/1702291882434-create_sell_signals"
+import { BuySignal } from "./models/BuySignal"
+import { SellSignal } from "./models/SellSignal"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -16,11 +20,13 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User, Role, TechnicalResource],
+  entities: [User, Role, TechnicalResource, BuySignal, SellSignal],
   migrations: [
     CreateUsersTable1698050881658,
     RoleFkAtUsers1702290088419,
-    CreateTechnicalResources1702291424267
+    CreateTechnicalResources1702291424267,
+    CreateBuySignals1702293089937,
+    CreateSellSignals1702291882434
   ],
   synchronize: false,
   logging: false,

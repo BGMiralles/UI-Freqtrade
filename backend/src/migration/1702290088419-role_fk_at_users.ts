@@ -18,7 +18,6 @@ export class RoleFkAtUsers1702290088419 implements MigrationInterface {
                         name: "role",
                         type: "enum",
                         enum: ["user", "admin", "super_admin"],
-                        default: '"user"',
                       }
                 ],
             }),
