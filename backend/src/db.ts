@@ -7,7 +7,7 @@ import { User } from "./models/User"
 import { RoleFkAtUsers1702290088419 } from "./migration/1702290088419-role_fk_at_users"
 import { Role } from "./models/Role"
 import { CreateTechnicalResources1702291424267 } from "./migration/1702291424267-create_technical_resources"
-import { TechnicalResources } from "./models/TechnicalResources"
+import { TechnicalResource } from "./models/TechnicalResource"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User, Role, TechnicalResources],
+  entities: [User, Role, TechnicalResource],
   migrations: [
     CreateUsersTable1698050881658,
     RoleFkAtUsers1702290088419,
