@@ -15,7 +15,7 @@ export class CreateBuyTechnicals1702293670740 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
-                        name: "sell_signal_id",
+                        name: "buy_signal_id",
                         type: "int",
                       },
                     {
@@ -23,6 +23,18 @@ export class CreateBuyTechnicals1702293670740 implements MigrationInterface {
                         type: "int",
                       },
                 ],
+                foreignKeys: [
+                    {
+                      columnNames: ["buy_signal_id"],
+                      referencedTableName: "buy_signal",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["technical_resources_id"],
+                      referencedTableName: "technical_resources",
+                      referencedColumnNames: ["id"],
+                    },
+                  ],
             }),
             true
         );
