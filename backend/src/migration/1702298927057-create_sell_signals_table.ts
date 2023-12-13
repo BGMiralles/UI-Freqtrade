@@ -1,11 +1,11 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm"
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm"
 
-export class CreateBuySignals1702293089937 implements MigrationInterface {
+export class CreateSellSignalsTable1702298927057 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "buy_signals",
+                name: "sell_signals",
                 columns: [
                     {
                         name: "id",
@@ -23,7 +23,7 @@ export class CreateBuySignals1702293089937 implements MigrationInterface {
                         type: "int",
                     },
                     {
-                        name: "buy_technical_id",
+                        name: "sell_technical_id",
                         type: "int",
                     },
                     {
@@ -42,19 +42,22 @@ export class CreateBuySignals1702293089937 implements MigrationInterface {
                         onUpdate: "CURRENT_TIMESTAMP"                 
                     },
                 ],
-                foreignKeys: [
-                    {
-                      columnNames: ["buy_technical_id"],
-                      referencedTableName: "buy_technical",
-                      referencedColumnNames: ["id"],
-                    },
-                  ],
             }),
             true
+        );
+        await queryRunner.createForeignKey(
+            "sell_signals",
+            new TableForeignKey({
+                columnNames: ["sell_technical_id"],
+                referencedColumnNames: ["id"],
+                referencedTableName: "sell_technicals",
+            })
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("buy_signals");
+        await queryRunner.dropForeignKey("sell_signals", "FK_sell_technical");
+        await queryRunner.dropTable("sell_signals");
     }
 }
+

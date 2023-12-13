@@ -2,20 +2,20 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import 'dotenv/config'
 
-import { User } from "./models/User"
 import { RoleFkAtUsers1702290088419 } from "./migration/1702290088419-role_fk_at_users"
-import { Role } from "./models/Role"
 import { CreateTechnicalResources1702291424267 } from "./migration/1702291424267-create_technical_resources"
+import { CreateUsersTable1702296323232 } from "./migration/1702296323232-create_users_table"
+import { CreateSellSignalsTable1702298927057 } from "./migration/1702298927057-create_sell_signals_table"
+import { CreateBuySignalsTable1702299149304 } from "./migration/1702299149304-create_buy_signals_table"
+import { CreateSellTechnicalsTable1702300979806 } from "./migration/1702300979806-create_sell_technicals_table"
+import { CreateBuyTechnicalsTable1702301355631 } from "./migration/1702301355631-create_buy_technicals_table"
+import { Role } from "./models/Role"
+import { User } from "./models/User"
 import { TechnicalResource } from "./models/TechnicalResource"
-import { CreateBuySignals1702293089937 } from "./migration/1702293089937-create_buy_signals"
-import { CreateSellSignals1702291882434 } from "./migration/1702291882434-create_sell_signals"
 import { BuySignal } from "./models/BuySignal"
 import { SellSignal } from "./models/SellSignal"
-import { CreateSellTechnicals1702293428642 } from "./migration/1702293428642-create_sell_technicals"
 import { SellTechnical } from "./models/SellTechnical"
-import { CreateBuyTechnicals1702293670740 } from "./migration/1702293670740-create_buy_technicals"
 import { BuyTechnical } from "./models/BuyTechnical"
-import { CreateUsersTable1702296323232 } from "./migration/1702296323232-create_users_table"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -29,10 +29,10 @@ export const AppDataSource = new DataSource({
     RoleFkAtUsers1702290088419,
     CreateUsersTable1702296323232,
     CreateTechnicalResources1702291424267,
-    CreateBuySignals1702293089937,
-    CreateSellSignals1702291882434,
-    CreateSellTechnicals1702293428642,
-    CreateBuyTechnicals1702293670740
+    CreateBuySignalsTable1702299149304,
+    CreateSellSignalsTable1702298927057,
+    CreateSellTechnicalsTable1702300979806,
+    CreateBuyTechnicalsTable1702301355631
   ],
   synchronize: false,
   logging: false,

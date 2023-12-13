@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class CreateSellTechnicals1702293428642 implements MigrationInterface {
+export class CreateBuyTechnicalsTable1702301355631 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "sell_technicals",
+                name: "buy_technicals",
                 columns: [
                     {
                         name: "id",
@@ -15,7 +15,7 @@ export class CreateSellTechnicals1702293428642 implements MigrationInterface {
                         generationStrategy: "increment",
                     },
                     {
-                        name: "sell_signal_id",
+                        name: "buy_signal_id",
                         type: "int",
                       },
                     {
@@ -23,25 +23,15 @@ export class CreateSellTechnicals1702293428642 implements MigrationInterface {
                         type: "int",
                       },
                 ],
-                foreignKeys: [
-                    {
-                      columnNames: ["sell_signal_id"],
-                      referencedTableName: "sell_signal",
-                      referencedColumnNames: ["id"],
-                    },
-                    {
-                      columnNames: ["technical_resources_id"],
-                      referencedTableName: "technical_resources",
-                      referencedColumnNames: ["id"],
-                    },
-                  ],
             }),
             true
         );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("sell_technicals");
+        await queryRunner.dropTable("buy_technicals");
     }
 
 }
+
+
