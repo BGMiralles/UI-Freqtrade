@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class CreateStrategyTable1702487187436 implements MigrationInterface {
+export class CreateStrategiesTable1702489125518 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -56,6 +56,33 @@ export class CreateStrategyTable1702487187436 implements MigrationInterface {
                         onUpdate: "CURRENT_TIMESTAMP"                 
                     },
                 ],
+                foreignKeys: [
+                    {
+                      columnNames: ["user_id"],
+                      referencedTableName: "users",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["buy_signal_id"],
+                      referencedTableName: "buy_signals",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["sell_signal_id"],
+                      referencedTableName: "sell_signals",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["time_frame_id"],
+                      referencedTableName: "time_frames",
+                      referencedColumnNames: ["id"],
+                    },
+                    {
+                      columnNames: ["pair_id"],
+                      referencedTableName: "pairs",
+                      referencedColumnNames: ["id"],
+                    },
+                  ],
             }),
             true
         );
