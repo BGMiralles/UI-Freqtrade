@@ -16,6 +16,8 @@ import { BuySignal } from "./models/BuySignal"
 import { SellSignal } from "./models/SellSignal"
 import { SellTechnical } from "./models/SellTechnical"
 import { BuyTechnical } from "./models/BuyTechnical"
+import { CreateStrategyTable1702487187436 } from "./migration/1702487187436-create_strategy_table"
+import { Strategy } from "./models/Strategy"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -24,7 +26,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical],
+  entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical, Strategy],
   migrations: [
     RoleFkAtUsers1702290088419,
     CreateUsersTable1702296323232,
@@ -32,7 +34,8 @@ export const AppDataSource = new DataSource({
     CreateBuySignalsTable1702299149304,
     CreateSellSignalsTable1702298927057,
     CreateSellTechnicalsTable1702300979806,
-    CreateBuyTechnicalsTable1702301355631
+    CreateBuyTechnicalsTable1702301355631,
+    CreateStrategyTable1702487187436
   ],
   synchronize: false,
   logging: false,
