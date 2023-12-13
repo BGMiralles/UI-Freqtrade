@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity("time_frames")
-export class Role extends BaseEntity{
+export class TimeFrame extends BaseEntity{
   @PrimaryGeneratedColumn()
   id!: number
 

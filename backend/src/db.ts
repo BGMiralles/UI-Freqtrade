@@ -18,6 +18,10 @@ import { SellTechnical } from "./models/SellTechnical"
 import { BuyTechnical } from "./models/BuyTechnical"
 import { CreateStrategyTable1702487187436 } from "./migration/1702487187436-create_strategy_table"
 import { Strategy } from "./models/Strategy"
+import { CreateTimeFramesTable1702487861717 } from "./migration/1702487861717-create_time_frames_table"
+import { TimeFrame } from "./models/TimeFrame"
+import { CreatePairsTable1702487679654 } from "./migration/1702487679654-create_pairs_table"
+import { Pair } from "./models/Pair"
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -26,7 +30,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical, Strategy],
+  entities: [User, Role, TechnicalResource, BuySignal, SellSignal, SellTechnical, BuyTechnical, Strategy, TimeFrame, Pair],
   migrations: [
     RoleFkAtUsers1702290088419,
     CreateUsersTable1702296323232,
@@ -35,7 +39,9 @@ export const AppDataSource = new DataSource({
     CreateSellSignalsTable1702298927057,
     CreateSellTechnicalsTable1702300979806,
     CreateBuyTechnicalsTable1702301355631,
-    CreateStrategyTable1702487187436
+    CreateStrategyTable1702487187436,
+    CreateTimeFramesTable1702487861717,
+    CreatePairsTable1702487679654
   ],
   synchronize: false,
   logging: false,
