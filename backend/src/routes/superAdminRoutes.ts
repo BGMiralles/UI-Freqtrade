@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { auth } from "../middlewares/auth";
 import { isSuperAdmin } from "../middlewares/isSuperAdmin";
-import { createTechnicalResource, createTimeFrame, deleteTechnicalResource, deleteUser, getAllTechnicalResources, getAllUsers, updateTechnicalResource, updateUserRole } from "../controllers/superAdminController";
+import { createTimeFrame, deleteUser, getAllUsers, updateUserRole } from "../controllers/superAdminController";
+import { createTechnicalResource, deleteTechnicalResource, updateTechnicalResource } from "../controllers/technicalResourceController";
 
 const router = Router()
 
