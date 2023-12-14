@@ -5,15 +5,15 @@ import { User } from "../models/User";
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find();
-    return res.json({
+    return res.status(200).json({
       success: true,
-      message: "users retrieved",
+      message: "Users retrieved",
       data: users,
     });
   } catch (error) {
-    return res.json({
+    return res.status(500).json({
       success: false,
-      message: "users cant be retrieved",
+      message: "Users cant be retrieved",
       error: error,
     });
   }
@@ -24,7 +24,7 @@ const deleteUser = async (req: Request, res: Response) => {
     const id = req.body.id;
 
     if (!id) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "Invalid user ID",
       });
@@ -34,7 +34,7 @@ const deleteUser = async (req: Request, res: Response) => {
       id,
     });
     if (!userToRemove) {
-      return res.json({
+      return res.status(404).json({
         success: false,
         message: "User not found",
       });
@@ -42,13 +42,13 @@ const deleteUser = async (req: Request, res: Response) => {
 
     await User.remove(userToRemove);
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "User deleted",
       data: userToRemove,
     });
   } catch (error) {
-    return res.json({
+    return res.status(500).json({
       success: false,
       message: "User cant be deleted",
       error: error,
@@ -61,7 +61,7 @@ const updateUserRole = async (req: Request, res: Response) => {
     const { id, role } = req.body;
 
     if (!id || !role) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "Invalid user ID or role",
       });
@@ -71,7 +71,7 @@ const updateUserRole = async (req: Request, res: Response) => {
       id,
     });
     if (!userToUpdate) {
-      return res.json({
+      return res.status(404).json({
         success: false,
         message: "User not found",
       });
@@ -80,13 +80,13 @@ const updateUserRole = async (req: Request, res: Response) => {
     userToUpdate.role = role;
     await userToUpdate.save();
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "User role updated",
       data: userToUpdate,
     });
   } catch (error) {
-    return res.json({
+    return res.status(500).json({
       success: false,
       message: "User role cant be updated",
       error: error,

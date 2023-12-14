@@ -18,7 +18,7 @@ const createBuyTechnical = async (req: Request, res: Response) => {
     } catch (error) {
         return res.status(500).json({ 
             success: false,
-            message: 'Error creating the record in the intermediate table',
+            message: 'Error creating buy technical',
             error: error,
         });
     }
@@ -35,7 +35,7 @@ const getAllBuyTechnicals = async (req: Request, res: Response) => {
         });
     } catch (error) {
         res.status(500).json({ 
-            message: 'Error retrieving records from the intermediate table',
+            message: 'Error retrieving buy technicals',
             error: error, 
         });
     }
@@ -50,19 +50,19 @@ const deleteBuyTechnical = async (req: Request, res: Response) => {
         if (!buyTechnical) {
             return res.status(404).json({
                 success: false, 
-                message: 'Record not found in the intermediate table',
+                message: 'Buy technical not found',
             });
         }
 
         return res.json({ 
             success: true,
-            message: 'Record deleted successfully',
+            message: 'Buy technical deleted',
             data: buyTechnical, 
         });
     } catch (error) {
         res.status(500).json({ 
             success: false,
-            message: 'Error deleting the record from the intermediate table',
+            message: 'Error deleting buy technical',
             error: error, 
         });
     }

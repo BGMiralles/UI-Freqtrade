@@ -9,18 +9,18 @@ const register = async (req: Request, res: Response) => {
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailRegex.test(email)) {
-      return res.json({ mensaje: "Correo electrónico no válido" });
+      return res.status(400).json({ message: "Invalid email" });
     }
 
     const passswordRegex =
       /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{4,12}$/;
     if (!passswordRegex.test(password)) {
-      return res.json({ mensaje: "Password no válido" });
+      return res.status(400).json({ message: "Invalid password" });
     }
     const encryptedPassword = bcrypt.hashSync(password, 10);
 
     if (!name || !nickname) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         message: "Missing fields",
       });
@@ -33,7 +33,7 @@ const register = async (req: Request, res: Response) => {
       password: encryptedPassword,
     }).save();
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "User created succesfully",
       token: newUser,
@@ -81,7 +81,7 @@ const login = async (req: Request, res: Response) => {
       }
     );
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "User logged succesfully",
       token: token,
@@ -141,6 +141,7 @@ const updateUser = async (req: any, res: Response) => {
         const existingUser = await User.findOne(email);
         if (existingUser) {
           return res.status(400).json({
+            success: false,
             message: "Email already exists",
           });
         }

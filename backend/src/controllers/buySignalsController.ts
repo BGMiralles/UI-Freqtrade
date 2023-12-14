@@ -2,16 +2,16 @@ import { Request, Response } from 'express';
 import { BuySignal } from '../models/BuySignal';
 
 
-export const getAllBuySignals = async (req: Request, res: Response) => {
+const getAllBuySignals = async (req: Request, res: Response) => {
     try {
         const buySignals = await BuySignal.find();
-        return res.json({
+        return res.status(200).json({
             success: true,
             message: "Buy signals retrieved",
             data: buySignals,
           });
     } catch (error) {
-        return res.json({
+        return res.status(500).json({
             success: false,
             message: "Buy signals cant be retrieved",
             error: error,
@@ -19,7 +19,7 @@ export const getAllBuySignals = async (req: Request, res: Response) => {
     }
 };
 
-export const getBuySignalById = async (req: Request, res: Response) => {
+const getBuySignalById = async (req: Request, res: Response) => {
     const { id } = req.body;
     try {
         const buySignal = await BuySignal.findOneBy(id);
@@ -39,7 +39,7 @@ export const getBuySignalById = async (req: Request, res: Response) => {
     }
 };
 
-export const createBuySignal = async (req: Request, res: Response) => {
+const createBuySignal = async (req: Request, res: Response) => {
     const { parameter_1, parameter_2, buy_technical_id, strategy_id } = req.body;
     try {
         const newBuySignal = await BuySignal.create({
@@ -63,7 +63,7 @@ export const createBuySignal = async (req: Request, res: Response) => {
     }
 };
 
-export const updateBuySignal = async (req: Request, res: Response) => {
+const updateBuySignal = async (req: Request, res: Response) => {
     const { id, parameter_1, parameter_2, buy_technical_id, strategy_id } = req.body;
     try {
         const buySignal = await BuySignal.update({
@@ -92,8 +92,7 @@ export const updateBuySignal = async (req: Request, res: Response) => {
     }
 };
 
-// Delete an existing buy_signal
-export const deleteBuySignal = async (req: Request, res: Response) => {
+const deleteBuySignal = async (req: Request, res: Response) => {
     const { id } = req.body;
     try {
         const buySignal = await BuySignal.findOneBy(id);
@@ -115,3 +114,5 @@ export const deleteBuySignal = async (req: Request, res: Response) => {
         });
     }
 };
+
+export { deleteBuySignal, updateBuySignal, createBuySignal, getBuySignalById, getAllBuySignals }

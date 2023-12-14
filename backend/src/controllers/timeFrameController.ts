@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { TimeFrame } from '../models/TimeFrame';
-import { time } from 'console';
+
 
 const getAllTimeFrames = async (req: Request, res: Response) => {
     try {
         const timeFrames = await TimeFrame.find();
-        return res.json(timeFrames);
+        return res.status(200).json(timeFrames);
     } catch (error) {
         return res.status(500).json({ 
             message: 'Error retrieving time frames', 
@@ -19,7 +19,7 @@ const createTimeFrame = async (req: Request, res: Response) => {
       const { time_frame } = req.body;
 
       if (!time_frame) {
-        return res.json({
+        return res.status(400).json({
           success: false,
           message: "Invalid time frame",
         });
@@ -29,14 +29,14 @@ const createTimeFrame = async (req: Request, res: Response) => {
         time_frame,
       });
   
-      return res.json({
+      return res.status(201).json({
         success: true,
         message: "Time frame created",
         data: createTimeFrame,
       });
 
     } catch (error) {
-      return res.json({
+      return res.status(500).json({
         success: false,
         message: "Time frame cant be created",
         error: error,
@@ -58,16 +58,17 @@ const deleteTimeFrame = async (req: Request, res: Response) => {
         }
         await TimeFrame.remove(timeFrameToRemove);
 
-        return res.json({ 
+        return res.status(200).json({ 
             message: 'Time frame deleted successfully' 
         });
     } catch (error) {
         return res.status(500).json({ 
             message: 'Error deleting time frame',
-            error: error, });
+            error: error, 
+        });
     }
 };
-// Export all CRUD functions
+
 export {
     getAllTimeFrames,
     createTimeFrame,
