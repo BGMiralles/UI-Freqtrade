@@ -127,27 +127,4 @@ const profile = async (req: any, res: Response) => {
   }
 }
 
-const getAllUsers = async (req: Request, res: Response) => {
-  try {
-    const users = await User.find();
-
-    return res.json(
-      {
-        success: true,
-        message: "users retrieved",
-        data: users
-      }
-    )
-
-  } catch (error) {
-    return res.json(
-      {
-        success: false,
-        message: "users cant be retrieved",
-        error: error
-      }
-    )
-  }
-}
-
-export { register, login, profile, getAllUsers }
+export { register, login, profile }
