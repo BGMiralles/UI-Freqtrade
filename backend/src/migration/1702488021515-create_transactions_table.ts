@@ -22,7 +22,7 @@ export class CreateTransactionsTable1702488021515 implements MigrationInterface 
                         name: "status",
                         type: "enum",
                         enum: ["open", "close"],
-                        default: "open",
+                        default: "'open'",
                     },
                     {
                         name: "entry_price",

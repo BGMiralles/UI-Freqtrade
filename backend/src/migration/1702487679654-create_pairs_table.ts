@@ -16,7 +16,8 @@ export class CreatePairsTable1702487679654 implements MigrationInterface {
                     },
                     {
                         name: "pair",
-                        type: "string",
+                        type: "varchar",
+                        length: "150"
                       }
                 ],
             }),

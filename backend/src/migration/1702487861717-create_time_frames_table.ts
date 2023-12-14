@@ -16,7 +16,8 @@ export class CreateTimeFramesTable1702487861717 implements MigrationInterface {
                     },
                     {
                         name: "time_frame",
-                        type: "string",
+                        type: "varchar",
+                        length: "150"
                       }
                 ],
             }),

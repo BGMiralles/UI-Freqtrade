@@ -1,16 +1,11 @@
 import express from "express";
 import 'dotenv/config'
-
 import { router as routerUsers } from "./routes/usersRoutes";
 import { AppDataSource } from "./db";
 
 const app = express()
-
 app.use(express.json())
-
 const PORT = process.env.PORT || 3000
-
-// routes
 app.use('/user', routerUsers)
 
 AppDataSource.initialize()
