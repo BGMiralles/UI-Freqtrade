@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Strategy } from "./Strategy";
 
 @Entity("trades")
 export class Trade extends BaseEntity{
@@ -26,4 +27,7 @@ export class Trade extends BaseEntity{
   @Column()
   updated_at!: Date
 
+  @ManyToOne(() => Strategy, (strategy) => strategy.trades)
+  @JoinColumn({ name: 'strategy_id' })
+  strategy!: Strategy;
 }

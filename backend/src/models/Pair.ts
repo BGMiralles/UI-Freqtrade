@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { Strategy } from "./Strategy";
 
 @Entity("pairs")
 export class Pair extends BaseEntity{
@@ -8,4 +9,6 @@ export class Pair extends BaseEntity{
   @Column()
   pair!: string
 
+  @OneToMany(() => Strategy, strategy => strategy.pair)
+  strategies!: Strategy[];
 }

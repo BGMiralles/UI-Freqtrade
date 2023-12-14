@@ -1,5 +1,6 @@
 import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { Role } from "./Role"
+import { Strategy } from "./Strategy"
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -35,4 +36,6 @@ export class User extends BaseEntity {
   @JoinColumn({ name: "role_id" })
   role!: Role;
   
+  @OneToMany(() => Strategy, strategy => strategy.user)
+  strategies!: Strategy[];
 }

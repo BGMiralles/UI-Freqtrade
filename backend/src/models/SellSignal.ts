@@ -1,5 +1,7 @@
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { TechnicalResource } from "./TechnicalResource"
+import { SellTechnical } from "./SellTechnical"
+import { Strategy } from "./Strategy"
 
 @Entity("sell_signals")
 export class SellSignal extends BaseEntity{
@@ -27,17 +29,10 @@ export class SellSignal extends BaseEntity{
   @Column()
   updated_at!: Date
 
-  @ManyToMany(() => TechnicalResource)
-  @JoinTable({
-    name: "sell_technicals",
-    joinColumn: {
-      name: "sell_signal_id",
-      referencedColumnName: "id",
-    },
-    inverseJoinColumn: {
-      name: "technical_resources_id",
-      referencedColumnName: "id",
-    },
-  })
-  sellTechnicals?: TechnicalResource[];
+  @ManyToOne(() => Strategy, strategy => strategy.sellSignal)
+  @JoinColumn({ name: 'strategy_id' })
+  strategy!: Strategy;
+
+  @OneToMany(() => SellTechnical, sellTechnical => sellTechnical.sellSignal)
+  sellTechnicals!: SellTechnical[];
 }
