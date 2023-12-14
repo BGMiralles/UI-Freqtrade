@@ -1,37 +1,45 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm"
-import { BuyTechnical } from "./BuyTechnical"
-import { Strategy } from "./Strategy"
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { BuyTechnical } from "./BuyTechnical";
+import { Strategy } from "./Strategy";
 
 @Entity("buy_signals")
-export class BuySignal extends BaseEntity{
+export class BuySignal extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id!: number
+  id!: number;
 
   @Column()
-  name!: string
-  
-  @Column()
-  parameter_1!: number
+  name!: string;
 
   @Column()
-  parameter_2!: number
+  parameter_1!: number;
 
   @Column()
-  buy_technical_id!: number
-  
-  @Column()
-  strategy_id!: number
+  parameter_2!: number;
 
   @Column()
-  created_at!: Date
-  
-  @Column()
-  updated_at!: Date
+  buy_technical_id!: number;
 
-  @ManyToOne(() => Strategy, strategy => strategy.buySignal)
-  @JoinColumn({ name: 'strategy_id' })
+  @Column()
+  strategy_id!: number;
+
+  @Column()
+  created_at!: Date;
+
+  @Column()
+  updated_at!: Date;
+
+  @ManyToOne(() => Strategy, (strategy) => strategy.buySignal)
+  @JoinColumn({ name: "strategy_id" })
   strategy!: Strategy;
 
-  @OneToMany(() => BuyTechnical, buyTechnical => buyTechnical.buySignal)
+  @OneToMany(() => BuyTechnical, (buyTechnical) => buyTechnical.buySignal)
   buyTechnicals!: BuyTechnical[];
 }

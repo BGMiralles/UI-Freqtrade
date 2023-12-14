@@ -1,27 +1,41 @@
-import { BaseEntity, Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm"
-import { BuyTechnical } from "./BuyTechnical"
-import { SellTechnical } from "./SellTechnical"
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { BuyTechnical } from "./BuyTechnical";
+import { SellTechnical } from "./SellTechnical";
 
 @Entity("technical_resources")
-export class TechnicalResource extends BaseEntity{
+export class TechnicalResource extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id!: number
+  id!: number;
 
   @Column()
-  name!: string
+  name!: string;
 
   @Column()
-  description!: string
-    
-  @Column()
-  created_at!: Date
-  
-  @Column()
-  updated_at!: Date
+  description!: string;
 
-  @OneToMany(() => BuyTechnical, buyTechnical => buyTechnical.technicalResource)
+  @Column()
+  created_at!: Date;
+
+  @Column()
+  updated_at!: Date;
+
+  @OneToMany(
+    () => BuyTechnical,
+    (buyTechnical) => buyTechnical.technicalResource
+  )
   buyTechnicals!: BuyTechnical[];
 
-  @OneToMany(() => SellTechnical, sellTechnical => sellTechnical.technicalResource)
+  @OneToMany(
+    () => SellTechnical,
+    (sellTechnical) => sellTechnical.technicalResource
+  )
   sellTechnicals!: SellTechnical[];
 }

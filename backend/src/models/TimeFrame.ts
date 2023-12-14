@@ -1,14 +1,20 @@
-import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Strategy } from "./Strategy";
 
 @Entity("time_frames")
-export class TimeFrame extends BaseEntity{
+export class TimeFrame extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id!: number
+  id!: number;
 
   @Column()
-  time_frame!: string
+  time_frame!: string;
 
-  @OneToMany(() => Strategy, strategy => strategy.timeFrame)
+  @OneToMany(() => Strategy, (strategy) => strategy.timeFrame)
   strategies!: Strategy[];
 }

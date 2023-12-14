@@ -66,7 +66,7 @@ export const AppDataSource = new DataSource({
     AddForeignKeyToBuyTecnicals1702550145918,
     AddForeignKeyToBuySignals1702550322085,
     AddForeignKeyToSellSignals1702550559431,
-    AddForeignKeyToTransaction1702550677545
+    AddForeignKeyToTransaction1702550677545,
   ],
   synchronize: false,
   logging: false,
