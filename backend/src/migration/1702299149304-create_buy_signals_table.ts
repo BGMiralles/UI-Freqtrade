@@ -45,18 +45,9 @@ export class CreateBuySignalsTable1702299149304 implements MigrationInterface {
             }),
             true
         );
-        // await queryRunner.createForeignKey(
-        //     "buy_signals",
-        //     new TableForeignKey({
-        //         columnNames: ["buy_technical_id"],
-        //         referencedColumnNames: ["id"],
-        //         referencedTableName: "buy_technicals",
-        //     })
-        // );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        // await queryRunner.dropForeignKey("buy_signals", "FK_buy_technical");
         await queryRunner.dropTable("buy_signals");
     }
 }

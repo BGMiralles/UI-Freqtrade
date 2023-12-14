@@ -25,6 +25,8 @@ import { CreateTransactionsTable1702488021515 } from "./migration/1702488021515-
 import { Trade } from "./models/Trade";
 import { CreateStrategiesTable1702489125518 } from "./migration/1702489125518-create_strategies_table";
 import { AddForeignKeyToSellTecnicals1702491957943 } from "./migration/1702491957943-add_foreign_key_to_sell_tecnicals";
+import { AddForeignKeyToBuyTecnicals1702550145918 } from "./migration/1702550145918-add_foreign_key_to_buy_tecnicals";
+import { AddForeignKeyToBuySignals1702550322085 } from "./migration/1702550322085-add_foreign_key_to_buy_signals";
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -58,7 +60,9 @@ export const AppDataSource = new DataSource({
     CreateTimeFramesTable1702487861717,
     CreatePairsTable1702487679654,
     CreateTransactionsTable1702488021515,
-    AddForeignKeyToSellTecnicals1702491957943
+    AddForeignKeyToSellTecnicals1702491957943,
+    AddForeignKeyToBuyTecnicals1702550145918,
+    AddForeignKeyToBuySignals1702550322085
   ],
   synchronize: false,
   logging: false,

@@ -1,14 +1,14 @@
 import { MigrationInterface, QueryRunner, TableForeignKey } from "typeorm"
 
-export class AddForeignKeyToBuyTecnicals1702550145918 implements MigrationInterface {
+export class AddForeignKeyToBuySignals1702550322085 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createForeignKey(
-            "buy_technicals",
+            "buy_signals",
             new TableForeignKey({
-                columnNames: ["buy_signal_id"],
+                columnNames: ["buy_technical_id"],
                 referencedColumnNames: ["id"],
-                referencedTableName: "buy_signals",
+                referencedTableName: "buy_technicals",
                 onDelete: "CASCADE",
                 onUpdate: "CASCADE",
             }
@@ -16,11 +16,11 @@ export class AddForeignKeyToBuyTecnicals1702550145918 implements MigrationInterf
         );
 
         await queryRunner.createForeignKey(
-            "buy_technicals",
+            "buy_signals",
             new TableForeignKey({
-                columnNames: ["technical_resources_id"],
+                columnNames: ["strategy_id"],
                 referencedColumnNames: ["id"],
-                referencedTableName: "technical_resources",
+                referencedTableName: "strategies",
                 onDelete: "CASCADE",
                 onUpdate: "CASCADE",
             }
@@ -29,8 +29,8 @@ export class AddForeignKeyToBuyTecnicals1702550145918 implements MigrationInterf
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey("buy_technicals", "buy_signal_id");
-        await queryRunner.dropForeignKey("buy_technicals", "technical_resources_id");
+        await queryRunner.dropForeignKey("buy_signals", "buy_technical_id");
+        await queryRunner.dropForeignKey("buy_signals", "strategy_id");
     }
 
 }
