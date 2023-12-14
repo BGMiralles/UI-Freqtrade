@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
-import { TimeFrame } from "../models/TimeFrame";
-import { TechnicalResource } from "../models/TechnicalResource";
+
 
 const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -95,34 +94,7 @@ const updateUserRole = async (req: Request, res: Response) => {
   }
 };
 
-const createTimeFrame = async (req: Request, res: Response) => {
-  try {
-    const { time_frame } = req.body;
 
-    if (!time_frame) {
-      return res.json({
-        success: false,
-        message: "Invalid time frame",
-      });
-    }
-
-    const createTimeFrame = await TimeFrame.create({
-      time_frame,
-    });
-
-    return res.json({
-      success: true,
-      message: "Time frame created",
-      data: createTimeFrame,
-    });
-  } catch (error) {
-    return res.json({
-      success: false,
-      message: "Time frame cant be created",
-      error: error,
-    });
-  }
-};
 
 
 
@@ -130,5 +102,4 @@ export {
   getAllUsers,
   deleteUser,
   updateUserRole,
-  createTimeFrame,
 };
