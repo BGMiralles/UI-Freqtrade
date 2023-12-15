@@ -111,27 +111,27 @@ const updateTechnicalResource = async (req: Request, res: Response) => {
     });
   }
 };
-  
-  const getAllTechnicalResources = async (req: Request, res: Response) => {
-    try {
-      const technicalResources = await TechnicalResource.find();
-      return res.status(200).json({
-        success: true,
-        message: "Technical resources retrieved",
-        data: technicalResources,
-      });
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        message: "Technical resources cant be retrieved",
-        error: error,
-      });
-    }
-  };
+
+const getAllTechnicalResources = async (req: Request, res: Response) => {
+  try {
+    const technicalResources = await TechnicalResource.find();
+    return res.status(200).json({
+      success: true,
+      message: "Technical resources retrieved",
+      data: technicalResources,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Technical resources cant be retrieved",
+      error: error,
+    });
+  }
+};
 
 export {
-    createTechnicalResource,
-    deleteTechnicalResource,
-    updateTechnicalResource,
-    getAllTechnicalResources
-}
+  createTechnicalResource,
+  deleteTechnicalResource,
+  updateTechnicalResource,
+  getAllTechnicalResources,
+};

@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { User } from "../models/User";
 
-
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find();
@@ -94,12 +93,4 @@ const updateUserRole = async (req: Request, res: Response) => {
   }
 };
 
-
-
-
-
-export {
-  getAllUsers,
-  deleteUser,
-  updateUserRole,
-};
+export { getAllUsers, deleteUser, updateUserRole };
