@@ -3,6 +3,12 @@ import { Role } from "../models/Role";
 
 const getRoles = async (req: Request, res: Response) => {
   try {
+    if (req.token.role.toString() !== "2") {
+      return res.status(403).json({
+        status: false,
+        message: "You are not allowed to perform this action",
+      });
+    } 
     const roles = await Role.find();
     return res.status(200).json({
       status: true,
@@ -21,7 +27,9 @@ const getRoles = async (req: Request, res: Response) => {
 const getRoleById = async (req: Request, res: Response) => {
   const { id } = req.body;
   try {
-    const role = await Role.findOneBy(id);
+    const role = await Role.findOne({
+      where: { id },
+    });
     if (!role) {
       return res.status(404).json({
         status: false,
@@ -34,7 +42,7 @@ const getRoleById = async (req: Request, res: Response) => {
       data: role,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       status: false,
       message: "Error retrieving role",
       error: error,
@@ -95,13 +103,16 @@ const updateRole = async (req: Request, res: Response) => {
 const deleteRole = async (req: Request, res: Response) => {
   const { id } = req.body;
   try {
-    const role = await Role.findOneBy(id);
+    const role = await Role.findOne({
+      where: { id },
+    });
     if (!role) {
       return res.status(404).json({
         status: false,
         message: "Role not found",
       });
     }
+    await role.remove();
     return res.status(200).json({
       status: true,
       message: "Role deleted successfully",
