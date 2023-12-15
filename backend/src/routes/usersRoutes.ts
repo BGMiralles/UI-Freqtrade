@@ -9,7 +9,7 @@ const router = Router()
 router.post('/register', register)
 router.post('/login', login)
 router.get('/profile', auth, profile)
-router.put('/updateuser', auth, updateUser)
+router.put('/update', auth, updateUser)
 router.get('/all', auth, isSuperAdmin, getAllUsers)
 router.delete('/delete', auth, isSuperAdmin, deleteUser)
 

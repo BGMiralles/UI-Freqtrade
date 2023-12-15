@@ -37,6 +37,7 @@ export class CreateUsersTable1702296323232 implements MigrationInterface {
           {
             name: "role_id",
             type: "int",
+            default: 1,
           },
           {
             name: "is_active",

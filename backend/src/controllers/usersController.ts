@@ -13,7 +13,7 @@ const register = async (req: Request, res: Response) => {
     }
 
     const passswordRegex =
-      /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]{4,12}$/;
+    /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{4,12}$/;
     if (!passswordRegex.test(password)) {
       return res.status(400).json({ message: "Invalid password" });
     }
@@ -97,14 +97,29 @@ const login = async (req: Request, res: Response) => {
 
 const profile = async (req: any, res: Response) => {
   try {
-    const user = await User.findOneBy({
-      id: req.token.id,
+    const user = await User.findOne({
+      where: { id: req.token.id },
+      relations: ["role"],
     });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const niceView = {
+      name: user.name,
+      nickname: user.nickname,
+      email: user.email,
+      role: user.role.role,
+    };
 
     return res.json({
       success: true,
       message: "profile user retrieved",
-      data: user,
+      data: niceView,
     });
   } catch (error) {
     return res.json({
@@ -117,7 +132,7 @@ const profile = async (req: any, res: Response) => {
 
 const updateUser = async (req: any, res: Response) => {
   try {
-    const { name, email, nickname, password } = req.body;
+    const { name, email, nickname } = req.body;
 
     if (email) {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -126,15 +141,6 @@ const updateUser = async (req: any, res: Response) => {
       }
     }
 
-    if (password) {
-      const passswordRegex =
-        /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{4,12}$/;
-      if (!passswordRegex.test(password) || password < 0 || password > 200) {
-        return res.status(400).json({
-          message: "Invalid password",
-        });
-      }
-    }
     const checkEmailExists = async (req: Request, res: Response) => {
       try {
         const { email } = req.body;
@@ -167,7 +173,6 @@ const updateUser = async (req: any, res: Response) => {
         name,
         nickname,
         email,
-        password,
       }
     );
 
