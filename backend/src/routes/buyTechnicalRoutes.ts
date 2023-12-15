@@ -7,3 +7,5 @@ const router = Router()
 router.post('/createBuyTechnical', auth, createBuyTechnical)
 router.get('/allBuyTechnicals', auth, getAllBuyTechnicals)
 router.delete('/deleteBuyTechnical', auth, deleteBuyTechnical)
+
+export { router }
