@@ -76,7 +76,7 @@ const updateBuySignal = async (req: Request, res: Response) => {
         if (!buySignal) {
             return res.status(404).json({ 
                 success: false,
-                message: 'Buy_signal not found' });
+                message: 'Buy signal not found' });
         }
         return res.json({
             success: true,
@@ -103,7 +103,7 @@ const deleteBuySignal = async (req: Request, res: Response) => {
         }
         return res.json({ 
             success: true,
-            message: 'Buy_signal deleted successfully', 
+            message: 'Buy signal deleted successfully', 
             data: buySignal,
         });
     } catch (error) {
