@@ -26,7 +26,7 @@ const createTimeFrame = async (req: Request, res: Response) => {
 
     const createTimeFrame = await TimeFrame.create({
       time_frame,
-    });
+    }).save();
 
     return res.status(201).json({
       success: true,

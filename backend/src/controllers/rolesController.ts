@@ -47,7 +47,7 @@ const createRole = async (req: Request, res: Response) => {
   try {
     const newRole = await Role.create({
       role,
-    });
+    }).save();
     return res.status(201).json({
       status: true,
       message: "Role created successfully",

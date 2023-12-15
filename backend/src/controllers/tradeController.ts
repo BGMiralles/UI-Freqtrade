@@ -3,15 +3,45 @@ import { Trade } from "../models/Trade";
 
 const getAllTrades = async (req: Request, res: Response) => {
   try {
-    const trade = await Trade.find();
+    const trades = await Trade.find({
+      select: {
+        id: true,
+        PNL: true,
+        status: true,
+        entry_price: true,
+        amount: true,
+        strategy_id: true,
+        created_at: true,
+        updated_at: true,
+        strategy: {
+          name: true,
+          user_id: true,
+        },
+      },
+      relations: ["strategy"],
+    });
+
     return res.status(200).json({
-      sucess: true,
+      success: true,
       message: "Trades retrieved",
-      data: trade,
+      data: trades.map((trade) => ({
+        id: trade.id,
+        PNL: trade.PNL,
+        status: trade.status,
+        entry_price: trade.entry_price,
+        amount: trade.amount,
+        strategy_id: trade.strategy.name,
+        created_at: trade.created_at,
+        updated_at: trade.updated_at,
+        strategy: {
+          name: trade.strategy.name,
+          user_id: trade.strategy.user_id,
+        },
+      })),
     });
   } catch (error) {
     return res.status(500).json({
-      sucess: false,
+      success: false,
       message: "Error retrieving trades",
       error: error,
     });
@@ -22,7 +52,7 @@ const getTradeById = async (req: Request, res: Response) => {
   try {
     const { id } = req.body;
     const userId = req.token.id;
-    const transaction = await Trade.findOne({
+    const trade = await Trade.findOne({
       select: {
         id: true,
         PNL: true,
@@ -44,21 +74,34 @@ const getTradeById = async (req: Request, res: Response) => {
       relations: ["strategy"],
     });
 
-    if (!transaction) {
+    if (!trade) {
       return res.status(404).json({
-        sucess: false,
+        success: false,
         message: "Trade not found",
       });
     }
 
     return res.status(200).json({
-      sucess: true,
+      success: true,
       message: "Trade retrieved",
-      data: transaction,
+      data: {
+        id: trade.id,
+        PNL: trade.PNL,
+        status: trade.status,
+        entry_price: trade.entry_price,
+        amount: trade.amount,
+        strategy_id: trade.strategy.name,
+        created_at: trade.created_at,
+        updated_at: trade.updated_at,
+        strategy: {
+          name: trade.strategy.name,
+          user_id: trade.strategy.user_id,
+        },
+      },
     });
   } catch (error) {
     return res.status(500).json({
-      sucess: false,
+      success: false,
       message: "Error retrieving trade",
       error: error,
     });

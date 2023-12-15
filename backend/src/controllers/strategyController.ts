@@ -3,14 +3,42 @@ import { Strategy } from "../models/Strategy";
 
 const getAllStrategies = async (req: Request, res: Response) => {
   try {
-    const strategies = await Strategy.find();
-    res.status(200).json({
+    const strategies = await Strategy.find({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        user_id: true,
+        buy_signal_id: true,
+        sell_signal_id: true,
+        time_frame_id: true,
+        created_at: true,
+        updated_at: true,
+      },
+      relations: ["BuySignals", "SellSignals", "TimeFrames"],
+    });
+
+    const niceView = strategies.map((strate) => ({
+      id: strate.id,
+      name: strate.name,
+      description: strate.description,
+      buy_technical_id: Array.isArray(strate.buySignal)
+        ? strate.buySignal.map((bt) => bt.technicalResource.name)
+        : [],
+      sell_technical_id: Array.isArray(strate.sellSignal)
+        ? strate.sellSignal.map((bt) => bt.technicalResource.name)
+        : [],
+      time_frame_id: strate.timeFrame.time_frame,
+      created_at: strate.created_at,
+      updated_at: strate.updated_at,
+    }));
+    return res.status(200).json({
       sucess: true,
       message: "Strategies retrieved",
-      data: strategies,
+      data: niceView,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       sucess: false,
       message: "Error retrieving strategies",
       error: error,
@@ -21,20 +49,48 @@ const getAllStrategies = async (req: Request, res: Response) => {
 const getStrategyById = async (req: Request, res: Response) => {
   const { id } = req.body;
   try {
-    const strategy = await Strategy.findOneBy(id);
+    const strategy = await Strategy.findOne({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        user_id: true,
+        buy_signal_id: true,
+        sell_signal_id: true,
+        time_frame_id: true,
+        created_at: true,
+        updated_at: true,
+      },
+      relations: ["BuySignals", "SellSignals", "TimeFrames"],
+    });
     if (!strategy || strategy.user_id !== req.token.id) {
       return res.status(404).json({
         sucess: false,
         message: "Strategy not found",
       });
     }
-    res.status(200).json({
+    const niceView = {
+      id: strategy.id,
+      name: strategy.name,
+      description: strategy.description,
+      buy_technical_id: Array.isArray(strategy.buySignal)
+        ? strategy.buySignal.map((bt) => bt.technicalResource.name)
+        : [],
+      sell_technical_id: Array.isArray(strategy.sellSignal)
+        ? strategy.sellSignal.map((bt) => bt.technicalResource.name)
+        : [],
+      time_frame_id: strategy.timeFrame.time_frame,
+      created_at: strategy.created_at,
+      updated_at: strategy.updated_at,
+    };
+    return res.status(200).json({
       sucess: true,
       message: "Strategy retrieved",
-      data: strategy,
+      data: niceView,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       sucess: false,
       message: "Error retrieving strategy",
       error: error,
@@ -53,7 +109,7 @@ const createStrategy = async (req: Request, res: Response) => {
       buy_signal_id,
       sell_signal_id,
       time_frame_id,
-    });
+    }).save();
     return res.status(201).json({
       sucess: true,
       message: "Strategy created",

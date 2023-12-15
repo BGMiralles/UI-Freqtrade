@@ -15,7 +15,7 @@ const createTechnicalResource = async (req: Request, res: Response) => {
     const createTechnicalResource = await TechnicalResource.create({
       name,
       description,
-    });
+    }).save();
 
     return res.status(200).json({
       success: true,

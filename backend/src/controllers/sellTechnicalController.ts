@@ -9,7 +9,7 @@ const createSellTechnical = async (req: Request, res: Response) => {
     const sellTechnical = await SellTechnical.create({
       technical_resources_id,
       sell_signal_id,
-    });
+    }).save();
 
     return res.status(201).json({
       success: true,

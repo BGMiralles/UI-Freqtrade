@@ -8,7 +8,7 @@ const createBuyTechnical = async (req: Request, res: Response) => {
     const buyTechnical = await BuyTechnical.create({
       technical_resources_id,
       buy_signal_id,
-    });
+    }).save();
 
     return res.status(201).json({
       success: true,
