@@ -29,6 +29,7 @@ export class CreateSellSignalsTable1702298927057 implements MigrationInterface {
           {
             name: "sell_technical_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "strategy_id",

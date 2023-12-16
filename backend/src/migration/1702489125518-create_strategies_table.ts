@@ -30,10 +30,12 @@ export class CreateStrategiesTable1702489125518 implements MigrationInterface {
           {
             name: "buy_signal_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "sell_signal_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "time_frame_id",
@@ -42,6 +44,7 @@ export class CreateStrategiesTable1702489125518 implements MigrationInterface {
           {
             name: "pair_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "created_at",

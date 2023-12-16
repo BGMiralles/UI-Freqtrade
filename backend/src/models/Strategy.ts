@@ -28,17 +28,17 @@ export class Strategy extends BaseEntity {
   @Column()
   user_id!: number;
 
-  @Column()
-  buy_signal_id!: number;
+  @Column({ nullable: true })
+  buy_signal_id!: number | null;
 
-  @Column()
-  sell_signal_id!: number;
+  @Column({ nullable: true })
+  sell_signal_id!: number | null;
 
   @Column()
   time_frame_id!: number;
 
-  @Column()
-  pair_id!: number;
+  @Column({ nullable: true })
+  pair_id!: number | null;
 
   @Column()
   created_at!: Date;

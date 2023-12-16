@@ -17,15 +17,12 @@ export class SellSignal extends BaseEntity {
   id!: number;
 
   @Column()
-  name!: string;
-
-  @Column()
   parameter_1!: number;
 
   @Column()
   parameter_2!: number;
 
-  @Column()
+  @Column({ nullable: true})
   sell_technical_id!: number;
 
   @Column()

@@ -16,15 +16,12 @@ export class BuySignal extends BaseEntity {
   id!: number;
 
   @Column()
-  name!: string;
-
-  @Column()
   parameter_1!: number;
 
   @Column()
   parameter_2!: number;
 
-  @Column()
+  @Column({ nullable: true})
   buy_technical_id!: number;
 
   @Column()

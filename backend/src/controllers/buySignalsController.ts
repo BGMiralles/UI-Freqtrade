@@ -86,7 +86,7 @@ const getBuySignalById = async (req: Request, res: Response) => {
 };
 
 const createBuySignal = async (req: Request, res: Response) => {
-  const { parameter_1, parameter_2, buy_technical_id, strategy_id } = req.body;
+  const { parameter_1, parameter_2, buy_technical_id, strategy_id, technical_resources_id } = req.body;
   try {
     const newBuySignal = await BuySignal.create({
       parameter_1,
