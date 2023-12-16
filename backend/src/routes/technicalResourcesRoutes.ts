@@ -5,9 +5,9 @@ import { isSuperAdmin } from "../middlewares/isSuperAdmin";
 
 const router = Router()
 
-router.get('/getalltechnicalresources', auth, getAllTechnicalResources)
-router.post('/technicalresource', auth, isSuperAdmin, createTechnicalResource)
-router.delete('/deletetechnicalresource', auth, isSuperAdmin, deleteTechnicalResource)
-router.put('/updatetechnicalresource', auth, isSuperAdmin, updateTechnicalResource)
+router.get('/getAllTechnicalResources', auth, getAllTechnicalResources)
+router.post('/createTechnicalResource', auth, isSuperAdmin, createTechnicalResource)
+router.delete('/deleteTechnicalResource', auth, isSuperAdmin, deleteTechnicalResource)
+router.put('/updateTechnicalResource', auth, isSuperAdmin, updateTechnicalResource)
 
 export { router }

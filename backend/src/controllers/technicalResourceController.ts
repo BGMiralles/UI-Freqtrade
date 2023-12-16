@@ -115,10 +115,20 @@ const updateTechnicalResource = async (req: Request, res: Response) => {
 const getAllTechnicalResources = async (req: Request, res: Response) => {
   try {
     const technicalResources = await TechnicalResource.find();
+    if (!technicalResources) {
+      return res.status(404).json({
+        success: false,
+        message: "Technical resources not found",
+      });
+    }
+    const niceView = technicalResources.map(resource => ({
+      name: resource.name,
+      description: resource.description,
+    }));
     return res.status(200).json({
       success: true,
       message: "Technical resources retrieved",
-      data: technicalResources,
+      data: niceView,
     });
   } catch (error) {
     return res.status(500).json({
