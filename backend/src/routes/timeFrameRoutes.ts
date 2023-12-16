@@ -6,8 +6,8 @@ import { createTimeFrame, deleteTimeFrame, getAllTimeFrames } from "../controlle
 const router = Router();
 
 
-router.get('/getalltimeframes', auth, getAllTimeFrames);
-router.post('/createtimeframe',auth, isSuperAdmin, createTimeFrame);
-router.delete('/deletetimeframe', deleteTimeFrame);
+router.get('/getAllTimeFrames', auth, getAllTimeFrames);
+router.post('/createTimeFrame',auth, isSuperAdmin, createTimeFrame);
+router.delete('/deleteTimeFrame',auth, isSuperAdmin, deleteTimeFrame);
 
 export { router }
