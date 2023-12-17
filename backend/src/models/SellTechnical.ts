@@ -15,8 +15,8 @@ export class SellTechnical extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
-  sell_signal_id!: number;
+  @Column({ nullable: true, type: "int" })
+  sell_signal_id!: number | null;
 
   @Column()
   technical_resources_id!: number;

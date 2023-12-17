@@ -18,6 +18,7 @@ export class CreateSellTechnicalsTable1702300979806
           {
             name: "sell_signal_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "technical_resources_id",

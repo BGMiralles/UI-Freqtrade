@@ -22,11 +22,11 @@ export class SellSignal extends BaseEntity {
   @Column()
   parameter_2!: number;
 
-  @Column({ nullable: true})
-  sell_technical_id!: number;
+  @Column({ nullable: true, type: "int"})
+  sell_technical_id!: number | null;
 
-  @Column()
-  strategy_id!: number;
+  @Column({ nullable: true, type: "int"})
+  strategy_id!: number | null;
 
   @Column()
   created_at!: Date;
@@ -38,6 +38,6 @@ export class SellSignal extends BaseEntity {
   @JoinColumn({ name: "strategy_id" })
   strategy!: Strategy;
 
-  @OneToMany(() => SellTechnical, (sellTechnical) => sellTechnical.sellSignal)
+  @OneToMany(() => SellTechnical, (sellTechnical) => sellTechnical.sellSignal, { cascade: ['remove'] })
   sellTechnicals!: SellTechnical[];
 }

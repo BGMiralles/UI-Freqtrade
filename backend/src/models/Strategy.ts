@@ -46,11 +46,11 @@ export class Strategy extends BaseEntity {
   @Column()
   updated_at!: Date;
 
-  @ManyToOne(() => BuySignal, (buySignal) => buySignal.strategy)
+  @ManyToOne(() => BuySignal, (buySignal) => buySignal.strategy, { cascade: ['remove'] })
   @JoinColumn({ name: "buy_signal_id" })
   buySignal!: BuySignal;
 
-  @ManyToOne(() => SellSignal, (sellSignal) => sellSignal.strategy)
+  @ManyToOne(() => SellSignal, (sellSignal) => sellSignal.strategy, { cascade: ['remove'] })
   @JoinColumn({ name: "sell_signal_id" })
   sellSignal!: SellSignal;
 

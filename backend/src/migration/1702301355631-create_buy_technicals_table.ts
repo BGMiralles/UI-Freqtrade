@@ -18,6 +18,7 @@ export class CreateBuyTechnicalsTable1702301355631
           {
             name: "buy_signal_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "technical_resources_id",
