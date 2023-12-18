@@ -64,6 +64,8 @@ const createStrategy = async (req: Request, res: Response) => {
     time_frame_id,
     name,
     description,
+    buy_technical_resources_id,
+    sell_technical_resources_id,
   } = req.body;
 
   try {
@@ -82,13 +84,10 @@ const createStrategy = async (req: Request, res: Response) => {
       strategy: newStrategy,
     }).save();
 
-    // Obtener el ID del recurso técnico para la señal de compra (asumiendo que ya existe)
-    const existingTechnicalResourceIdBuy = 1; // Reemplaza con el ID correcto del recurso técnico
-
     // Crear la señal técnica de compra con las relaciones adecuadas
     const newBuyTechnical = await BuyTechnical.create({
       buy_signal_id: newBuySignal.id,
-      technical_resources_id: existingTechnicalResourceIdBuy,
+      technical_resources_id: buy_technical_resources_id,
       buySignal: newBuySignal,
     }).save();
 
@@ -99,13 +98,10 @@ const createStrategy = async (req: Request, res: Response) => {
       strategy: newStrategy,
     }).save();
 
-    // Obtener el ID del recurso técnico para la señal de venta (asumiendo que ya existe)
-    const existingTechnicalResourceIdSell = 2; // Reemplaza con el ID correcto del recurso técnico
-
     // Crear la señal técnica de venta con las relaciones adecuadas
     const newSellTechnical = await SellTechnical.create({
       sell_signal_id: newSellSignal.id,
-      technical_resources_id: existingTechnicalResourceIdSell,
+      technical_resources_id: sell_technical_resources_id,
       sellSignal: newSellSignal,
     }).save();
 
