@@ -18,8 +18,8 @@ export class SellTechnical extends BaseEntity {
   @Column({ nullable: true, type: "int" })
   sell_signal_id!: number | null;
 
-  @Column()
-  technical_resources_id!: number;
+  @Column({ nullable: true, type: "int"})
+  technical_resources_id!: number | null;
 
   @ManyToOne(() => SellSignal, (sellSignal) => sellSignal.sellTechnicals)
   @JoinColumn({ name: "sell_signal_id" })

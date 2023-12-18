@@ -7,6 +7,9 @@ import { router as routerTechnicalResource } from "./routes/technicalResourcesRo
 import { router as routerBuySignal } from "./routes/buySignalRoutes";
 import { router as routerBuyTechnical } from "./routes/buyTechnicalRoutes";
 import { router as routerStrategy } from "./routes/strategyRoutes";
+import { router as routerSellSignal } from "./routes/sellSignalRoutes";
+import { router as routerSellTechnical } from "./routes/sellTechnicalRoutes";
+import { router as routerTrade } from "./routes/tradeRoutes";
 import { AppDataSource } from "./db";
 
 const app = express()
@@ -18,7 +21,10 @@ app.use('/timeframe', routerTimeFrame)
 app.use('/technicalresource', routerTechnicalResource)
 app.use('/buysignal', routerBuySignal)
 app.use('/buytechnical', routerBuyTechnical)
+app.use('/sellsignal', routerSellSignal)
+app.use('/selltechnical', routerSellTechnical)
 app.use('/strategy', routerStrategy)
+app.use('/trade', routerTrade)
 
 AppDataSource.initialize()
   .then(() => {

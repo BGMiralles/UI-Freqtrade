@@ -23,6 +23,7 @@ export class CreateSellTechnicalsTable1702300979806
           {
             name: "technical_resources_id",
             type: "int",
+            isNullable: true,
           },
         ],
       }),

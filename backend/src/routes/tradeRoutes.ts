@@ -12,7 +12,7 @@ const router = Router();
 
 router.get("/getalltrades", auth, isSuperAdmin, getAllTrades);
 router.get("/getTradeById", auth, getTradeById);
-router.post("/createtrade", auth, createTrade);
-router.delete("/deletetrade", auth, deleteTrade);
+router.post("/createTrade", auth, createTrade);
+router.delete("/deleteTrade", auth, deleteTrade);
 
 export { router };

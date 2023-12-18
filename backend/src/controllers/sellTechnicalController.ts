@@ -46,7 +46,7 @@ const deleteSellTechnical = async (req: Request, res: Response) => {
   try {
     const { id } = req.body;
 
-    const sellTechnical = await SellTechnical.findOneBy(id);
+    const sellTechnical = await SellTechnical.findOne({ where: { id } });
 
     if (!sellTechnical) {
       return res.status(404).json({
@@ -54,7 +54,7 @@ const deleteSellTechnical = async (req: Request, res: Response) => {
         message: "Sell technical not found",
       });
     }
-
+    await sellTechnical.remove();
     return res.json({
       success: true,
       message: "Sell technical deleted",
@@ -69,4 +69,45 @@ const deleteSellTechnical = async (req: Request, res: Response) => {
   }
 };
 
-export { deleteSellTechnical, getAllSellTechnicals, createSellTechnical };
+const getSellTechnicalById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.body;
+
+    const sellTechnical = await SellTechnical.findOne({where : {id},
+      select: {
+        id: true,
+        technical_resources_id: true,
+        sell_signal_id: true,
+      },
+      relations: ["sellSignal", "technicalResource"],
+      });
+
+    if (!sellTechnical) {
+      return res.status(404).json({
+        success: false,
+        message: "Sell technical not found",
+      });
+    }
+    const niceView = {
+      id: sellTechnical.id,
+      technical_resources_id: sellTechnical.technical_resources_id,
+      sell_signal_id: sellTechnical.sellSignal.id,
+      technical_resources_name: sellTechnical.technicalResource.name,
+    };
+
+    return res.json({
+      success: true,
+      message: "Sell technical retrieved",
+      data: niceView,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Error retrieving sell technical",
+      error: error,
+    });
+  }
+};
+
+export { deleteSellTechnical, getAllSellTechnicals, createSellTechnical, getSellTechnicalById };

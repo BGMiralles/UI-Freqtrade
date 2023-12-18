@@ -1,34 +1,15 @@
 import { Request, Response } from "express";
 import { SellSignal } from "../models/SellSignal";
+import { SellTechnical } from "../models/SellTechnical";
+import { Strategy } from "../models/Strategy";
 
 const getAllSellSignals = async (req: Request, res: Response) => {
   try {
-    const sellSignals = await SellSignal.find({
-      select: {
-        id: true,
-        parameter_1: true,
-        parameter_2: true,
-        sell_technical_id: true,
-        strategy_id: true,
-        created_at: true,
-        updated_at: true,
-      },
-      relations: ['strategy', 'sellTechnicals'],
-    });
-
-    const niceView = sellSignals.map((sell_signal) => ({
-      id: sell_signal.id,
-      parameter_1: sell_signal.parameter_1,
-      parameter_2: sell_signal.parameter_2,
-      buy_technical_id: sell_signal.sellTechnicals.map((bt) => bt.technicalResource.name),
-      strategy_id: sell_signal.strategy.name,
-      created_at: sell_signal.created_at,
-      updated_at: sell_signal.updated_at,
-    }));
+    const sellSignals = await SellSignal.find();
     return res.status(200).json({
       success: true,
       message: "Sell signals retrieved",
-      data: niceView,
+      data: sellSignals,
     });
   } catch (error) {
     return res.status(500).json({
@@ -53,7 +34,7 @@ const getSellSignalById = async (req: Request, res: Response) => {
         created_at: true,
         updated_at: true,
       },
-      relations: ['strategy', 'sellTechnicals'],
+      relations: ["strategy", "sellTechnicals"],
     });
     if (!sellSignal) {
       return res.status(404).json({
@@ -65,8 +46,8 @@ const getSellSignalById = async (req: Request, res: Response) => {
       id: sellSignal.id,
       parameter_1: sellSignal.parameter_1,
       parameter_2: sellSignal.parameter_2,
-      buy_technical_id: sellSignal.sellTechnicals.map((bt) => bt.technicalResource.name),
-      strategy_id: sellSignal.strategy.name,
+      sell_technical_id: sellSignal.sell_technical_id,
+      strategy_name: sellSignal.strategy.name,
       created_at: sellSignal.created_at,
       updated_at: sellSignal.updated_at,
     };
@@ -146,13 +127,31 @@ const updateSellSignal = async (req: Request, res: Response) => {
 const deleteSellSignal = async (req: Request, res: Response) => {
   const { id } = req.body;
   try {
-    const sellSignal = await SellSignal.findOneBy(id);
+    const sellSignal = await SellSignal.findOne({
+      where: { id },
+      relations: ["sellTechnicals"],
+    });
     if (!sellSignal) {
       return res.status(404).json({
         success: false,
         message: "Sell signal not found",
       });
     }
+    await SellSignal.update(
+      { id: id },
+      { sell_technical_id: null, strategy_id: null }
+    );
+    if (sellSignal.sell_technical_id) {
+      await SellTechnical.update(
+        { id: sellSignal.sell_technical_id },
+        { sell_signal_id: null, technical_resources_id: null }
+      );
+    }
+    if (sellSignal.sell_technical_id) {
+      await SellTechnical.delete({ id: sellSignal.sell_technical_id });
+    }
+    await Strategy.update({ sell_signal_id: id }, { sell_signal_id: null });
+    await SellSignal.delete({ id });
     return res.json({
       success: true,
       message: "Sell signal deleted successfully",

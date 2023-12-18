@@ -34,6 +34,7 @@ export class CreateSellSignalsTable1702298927057 implements MigrationInterface {
           {
             name: "strategy_id",
             type: "int",
+            isNullable: true,
           },
           {
             name: "created_at",
@@ -50,18 +51,9 @@ export class CreateSellSignalsTable1702298927057 implements MigrationInterface {
       }),
       true
     );
-    // await queryRunner.createForeignKey(
-    //     "sell_signals",
-    //     new TableForeignKey({
-    //         columnNames: ["sell_technical_id"],
-    //         referencedColumnNames: ["id"],
-    //         referencedTableName: "sell_technicals",
-    //     })
-    // );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    // await queryRunner.dropForeignKey("sell_signals", "FK_sell_technical");
     await queryRunner.dropTable("sell_signals");
   }
 }

@@ -203,8 +203,7 @@ const deleteStrategy = async (req: Request, res: Response) => {
       });
     }
 
-    await Strategy.update({ id: id }, { buy_signal_id: null });
-    await Strategy.update({ id: id }, { sell_signal_id: null });
+    await Strategy.update({ id: id }, { buy_signal_id: null, sell_signal_id: null });
     if (strategy.buy_signal_id) {
       await BuySignal.update(
         { id: strategy.buy_signal_id },

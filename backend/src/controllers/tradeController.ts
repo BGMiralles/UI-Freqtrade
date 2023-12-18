@@ -63,14 +63,15 @@ const getTradeById = async (req: Request, res: Response) => {
         created_at: true,
         updated_at: true,
         strategy: {
+          id: true,
           name: true,
           user_id: true,
         },
       },
       where: {
         id: id,
-        user_id: userId,
-      } as any,
+        strategy: { user_id: userId },
+      },
       relations: ["strategy"],
     });
 
@@ -81,25 +82,28 @@ const getTradeById = async (req: Request, res: Response) => {
       });
     }
 
+    const niceView = {
+      id: trade.id,
+      PNL: trade.PNL,
+      status: trade.status,
+      entry_price: trade.entry_price,
+      amount: trade.amount,
+      strategy_id: trade.strategy.id,
+      created_at: trade.created_at,
+      updated_at: trade.updated_at,
+      strategy: {
+        name: trade.strategy.name,
+        user_id: trade.strategy.user_id,
+      },
+    };
+
     return res.status(200).json({
       success: true,
       message: "Trade retrieved",
-      data: {
-        id: trade.id,
-        PNL: trade.PNL,
-        status: trade.status,
-        entry_price: trade.entry_price,
-        amount: trade.amount,
-        strategy_id: trade.strategy.name,
-        created_at: trade.created_at,
-        updated_at: trade.updated_at,
-        strategy: {
-          name: trade.strategy.name,
-          user_id: trade.strategy.user_id,
-        },
-      },
+      data: niceView,
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Error retrieving trade",
@@ -153,7 +157,7 @@ const deleteTrade = async (req: Request, res: Response) => {
       },
       where: {
         id: id,
-        user_id: userId,
+        strategy: { user_id: userId },
       } as any,
       relations: ["strategy"],
     });
