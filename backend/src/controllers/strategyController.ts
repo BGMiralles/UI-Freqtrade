@@ -53,6 +53,67 @@ const getStrategyById = async (req: Request, res: Response) => {
       error: error,
     });
   }
+}
+;
+const getMyStrategies = async (req: Request, res: Response) => {
+  try {
+    const strategy = await Strategy.find({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        buy_signal_id: true,
+        sell_signal_id: true,
+        time_frame_id: true,
+      },
+      where: {
+        user_id: req.token.id,
+      },
+      relations: ["user", "buySignal", "sellSignal", "timeFrame"],
+    });
+
+    if (!strategy) {
+      return res.status(404).json({
+        success: false,
+        message: "Strategy not found",
+      });
+    }
+
+    const niceView = strategy.map((strategy) => {
+      return {
+        id: strategy.id,
+        name: strategy.name,
+        description: strategy.description,
+        buy_signal_id: strategy.buy_signal_id,
+        sell_signal_id: strategy.sell_signal_id,
+        time_frame_id: strategy.time_frame_id,
+        buy_signal_parameter_1: strategy.buySignal.parameter_1,
+        buy_signal_parameter_2: strategy.buySignal.parameter_2,
+        buy_signal_created_at: strategy.buySignal.created_at,
+        buy_signal_updated_at: strategy.buySignal.updated_at,
+        buy_technical_id: strategy.buySignal.buy_technical_id,
+        sell_signal_parameter_1: strategy.sellSignal.parameter_1,
+        sell_signal_parameter_2: strategy.sellSignal.parameter_2,
+        sell_signal_created_at: strategy.sellSignal.created_at,
+        sell_signal_updated_at: strategy.sellSignal.updated_at,
+        sell_technical_id: strategy.sellSignal.sell_technical_id,
+        time_frame_name: strategy.timeFrame.time_frame,
+      };
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Strategy retrieved",
+      data: niceView,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "Error retrieving strategy",
+      error: error,
+    });
+  }
 };
 
 const createStrategy = async (req: Request, res: Response) => {
@@ -242,4 +303,5 @@ export {
   getStrategyById,
   createStrategy,
   updateStrategy,
+  getMyStrategies,
 };

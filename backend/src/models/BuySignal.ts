@@ -40,4 +40,5 @@ export class BuySignal extends BaseEntity {
   @OneToMany(() => BuyTechnical, (buyTechnical) => buyTechnical.buySignal, { cascade: ['remove'] })
 buyTechnicals!: BuyTechnical[];
 
+  
 }
