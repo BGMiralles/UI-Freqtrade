@@ -4,8 +4,6 @@ import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
 import { Profile } from '../Profile/Profile';
 import { AboutView } from "../About/About";
-import { Artists } from '../Artists/Artists';
-import { LoginArtist } from '../Workers/Workers';
 import { Appointment } from '../Appointments/Appointments';
 import { NewAppoint } from '../NewAppointment/NewAppointment';
 import { MyAppointments } from '../MyAppointments/MyAppointments';
@@ -24,8 +22,6 @@ export const Body = () => {
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/about" element={<AboutView />}/>
                 <Route path="/strategies" element={<Strategy />}/>
-                <Route path="/artists" element={<Artists />}/>
-                <Route path="/workers" element={<LoginArtist />}/>
                 <Route path="/newappointments" element={<NewAppoint />}/>
                 <Route path="/appointments" element={<Appointment />}/>
                 <Route path="/myappointments" element={<MyAppointments />}/>

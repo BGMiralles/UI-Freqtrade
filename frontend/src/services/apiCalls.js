@@ -29,11 +29,20 @@ export const allTechnicals = async (credentials) => {
   });
 }
 
-export const updateStrategy = async (body, credentials) => {
-  console.log(body);
-  let search = await axios.put(`http://localhost:3000/strategy/updateStrategy`, body,
-  { headers: { Authorization: `Bearer ${credentials}` } });
-  return search.data.token;
+export const updateStrategy = async (strategyId, editedValues, credentials) => {
+  try {
+    const response = await axios.put(
+      'http://localhost:3000/strategy/updateStrategy',
+      { id: strategyId, ...editedValues },
+      { headers: { Authorization: `Bearer ${credentials}` } }
+    );
+
+    console.log('Response from updateAppointment:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in updateAppointment:', error);
+    throw error;
+  }
 };
 
 export const newAppointment = async (body, credentials) => {
@@ -51,11 +60,11 @@ export const bringTattoo = async () => {
   return await axios.get(`http://localhost:4004/tattoo/all`);
 };
 
-export const updateAppointment = async (appointmentId, editedValues, credentials) => {
+export const updateAppointment = async (strategyId, editedValues, credentials) => {
     try {
       const response = await axios.put(
-        'http://localhost:4004/appointments/update',
-        { id: appointmentId, ...editedValues },
+        'http://localhost:3000/strategy/updateStrategy',
+        { id: strategyId, ...editedValues },
         { headers: { Authorization: `Bearer ${credentials}` } }
       );
   

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
-import { myStrategy, allTechnicals } from "../../services/apiCalls";
+import { myStrategy, allTechnicals, updateStrategy } from "../../services/apiCalls";
 
 export const StrategyTable = () => {
     const datosRdxUser = useSelector(userData);
@@ -27,36 +27,47 @@ export const StrategyTable = () => {
         }
     };
 
-    useEffect(() => {
-        getStrategies();
-        getAllTechnicals();
-    }, []);
-
     const getTechnicalName = (technicalId) => {
         const technical = technicals.find((item) => item.id === technicalId);
         return technical ? technical.name : "";
     };
 
     const handleInputChange = (event, strategyId, field) => {
-        const value = event.target.value;
-        setEditedValues((prevEditedValues) => ({
-            ...prevEditedValues,
+        const updatedValues = {
+            ...editedValues,
             [strategyId]: {
-                ...prevEditedValues[strategyId],
-                [field]: value,
+                ...editedValues[strategyId],
+                [field]: event.target.value,
             },
-        }));
+        };
+        setEditedValues(updatedValues);
     };
 
-    const handleSaveChanges = (strategyId) => {
-        // Implement logic to save changes to the backend using editedValues[strategyId]
-        console.log("Save changes for strategyId:", strategyId);
-        // Clear the edited values for the strategy after saving
-        setEditedValues((prevEditedValues) => ({
-            ...prevEditedValues,
-            [strategyId]: {},
-        }));
+    const handleSaveChanges = async (strategyId) => {
+        const strategyToUpdate = editedValues[strategyId];
+
+        try {
+            // Realizar la solicitud a la API para actualizar la estrategia
+            await updateStrategy(strategyId, strategyToUpdate, datosRdxUser.credentials);
+            console.log(strategyToUpdate)
+
+            // Limpiar los valores editados y volver a obtener las estrategias actualizadas
+            setEditedValues({
+                ...editedValues,
+                [strategyId]: undefined, // Limpiar los valores editados para esa estrategia
+            });
+
+            // Obtener las estrategias actualizadas
+            await getStrategies();
+        } catch (error) {
+            console.error("Error updating strategy!", error);
+        }
     };
+
+    useEffect(() => {
+        getStrategies();
+        getAllTechnicals();
+    }, []);
 
     return (
         <div>
