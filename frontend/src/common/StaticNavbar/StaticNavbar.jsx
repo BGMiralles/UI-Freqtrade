@@ -36,7 +36,7 @@ export const StaticNavbar = () => {
               ABOUT US
             </Nav.Link>
             {rdxCredentials?.credentials ? (
-              rdxCredentials.data.role === "2" || "super_admin" ? (
+              (rdxCredentials.data.role === 2 || rdxCredentials.data.role === "super_admin") ? (
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
@@ -74,10 +74,10 @@ export const StaticNavbar = () => {
                     className="text-navbar items-navbar"
                     href="/profile"
                   >
-                    {rdxCredentials.data.username}
+                    {rdxCredentials.data.name.toUpperCase()}
                   </Nav.Link>
                   <div onClick={logOutMe}>
-                    <Nav.Link className="text-navbar items-navbar" href="/">
+                    <Nav.Link className="text-navbar items-navbar-logout" href="/">
                       LOG OUT
                     </Nav.Link>
                   </div>
