@@ -12,12 +12,14 @@ export const Profile = () => {
   const datosRdxUser = useSelector(userData);
 
   const [profile, setProfile] = useState({
-    username: datosRdxUser.data.username,
+    name: datosRdxUser.data.name,
+    nickname: datosRdxUser.data.nickname,
     email: datosRdxUser.data.email,
   });
 
   const [profileError, setProfileError] = useState({
-    usernameError: "",
+    nameError: "",
+    nicknameError: "",
     emailError: "",
   });
 
@@ -46,12 +48,15 @@ export const Profile = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
   const sendData = () => {
     updateProfile(profile, datosRdxUser.credentials)
       .then((resultado) => {
         setIsEnabled(true);
+
+        console.log(profile);
         console.log(datosRdxUser.credentials);
+        console.log(datosRdxUser.data);
         console.log(resultado);
       })
       .catch((error) => console.log(error));
@@ -63,12 +68,25 @@ export const Profile = () => {
       <CustomInput
         disabled={isEnabled}
         design={`inputDesign ${
-          profileError.usernameError !== "" ? "inputDesignError" : ""
+          profileError.nameError !== "" ? "inputDesignError" : ""
         }`}
         type={"text"}
-        name={"username"}
+        name={"name"}
         placeholder={""}
-        value={profile.username}
+        value={profile.name}
+        functionProp={functionHandler}
+        functionBlur={errorCheck}
+      />
+      <div className="header">Nick Name</div>
+      <CustomInput
+        disabled={isEnabled}
+        design={`inputDesign ${
+          profileError.nicknameError !== "" ? "inputDesignError" : ""
+        }`}
+        type={"text"}
+        name={"nickname"}
+        placeholder={""}
+        value={profile.nickname}
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />

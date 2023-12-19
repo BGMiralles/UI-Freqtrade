@@ -33,7 +33,7 @@ export const bringTattoo = async () => {
 };
 
 export const updateProfile = async (profile, credentials) => {
-  return await axios.put("http://localhost:4004/user/update", profile, {
+  return await axios.put("http://localhost:3000/user/update", profile, {
     headers: { Authorization: `Bearer ${credentials}` },
   });
 };
