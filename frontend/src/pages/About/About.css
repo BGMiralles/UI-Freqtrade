@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap');
+
 body {
     --sb-track-color: #000;
-    --sb-thumb-color: #ffd700;
+    --sb-thumb-color: green;
     --sb-size: 10px;
   
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
@@ -21,3 +23,6 @@ body {
     border-radius: 10px;
   }
   
+.colourText-green {
+  color: green
+}
