@@ -4,13 +4,13 @@ import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
 import { Profile } from '../Profile/Profile';
 import { AboutView } from "../About/About";
-import { Gallery } from '../Gallery/Gallery';
 import { Artists } from '../Artists/Artists';
 import { LoginArtist } from '../Workers/Workers';
 import { Appointment } from '../Appointments/Appointments';
 import { NewAppoint } from '../NewAppointment/NewAppointment';
 import { MyAppointments } from '../MyAppointments/MyAppointments';
 import { SuperAdmin } from '../SuperAdmin/SuperAdmin';
+import { Strategy } from '../Strategy/Strategy';
 
 
 export const Body = () => {
@@ -23,7 +23,7 @@ export const Body = () => {
                 <Route path="/register" element={<Register />}/>
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/about" element={<AboutView />}/>
-                <Route path="/gallery" element={<Gallery />}/>
+                <Route path="/strategies" element={<Strategy />}/>
                 <Route path="/artists" element={<Artists />}/>
                 <Route path="/workers" element={<LoginArtist />}/>
                 <Route path="/newappointments" element={<NewAppoint />}/>
