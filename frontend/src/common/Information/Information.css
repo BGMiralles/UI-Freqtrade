@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap");
+
+.informationDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  width: 100vw;
+  height: 10em;
+}
+
+.informationText {
+  color: white;
+  font-family: "Agbalumo", cursive;
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  color: gold;
+}
+
+.informationTextUnder {
+  font-size: 0.5em;
+  color: white;
+  margin-top: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .informationDiv {
+    flex-direction: column;
+    height: auto;
+    padding: 1em;
+  }
+
+  .informationText {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .informationText {
+    font-size: 1.5em;
+  }
+}

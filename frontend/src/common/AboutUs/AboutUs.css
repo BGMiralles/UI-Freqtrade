@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap');
+
+.aboutUsDesign {
+    height: 37em;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+}
+
+.aboutUsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100vw;
+    height: 30em;
+    margin-top: 7em;
+    overflow: hidden;
+}
+
+.aboutUsLogo {
+    height: 30em;
+    width: 35em;
+    overflow: hidden;
+    filter: drop-shadow(0 1px 1px yellow);
+}
+
+.textAboutUs {
+    color: white;
+    font-size: 1.3em;
+    margin-left: 0.625em;
+    font-family: 'Agbalumo', cursive;
+    width: 30em;
+    overflow: hidden
+}
+
+.colourText {
+    color: gold
+}
+
+.buttonBookDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    overflow: hidden
+}
+
+.appointmentAboutUs {
+    border: solid 1px gold;
+    width: 10em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.appointmentAboutUs:hover {
+    cursor: pointer;
+    color: gold;
+    background-color: white;
+    scale: 1.02;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutUsDesign {
+        height: 37em;
+    }
+
+    .aboutUsDiv {
+        flex-direction: column;
+        margin-top: 3em;
+    }
+
+    .aboutUsLogo {
+        height: 0em; 
+        width: 100%;
+        max-width: 0em; 
+    }
+
+    .textAboutUs {
+        margin-left: 0;
+        width: 80%;
+        text-align: center; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .aboutUsDesign {
+        height: 40em;
+    }
+
+    .aboutUsLogo {
+        max-width: 0em;
+    }
+
+    .textAboutUs {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap");
+
+.userTableDesign {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  background-image: url(../../img/superadmin.jpg);
+  background-size: cover;
+  color: white;
+  font-family: "Agbalumo", cursive;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.tableContainer {
+  margin-top: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+th,
+td {
+  border-bottom: 1px solid white;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: gold;
+  font-size: 1.5em;
+}
+
+td {
+  font-size: 1.2em;
+  background-color: black;
+  opacity: 80%;
+}
+
+.inputField {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
