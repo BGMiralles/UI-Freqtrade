@@ -6,7 +6,7 @@ export const Banner = () => {
     <div className="bannerHeader">
       <div
         className="background-banner"
-        style={{ backgroundImage: `url('../src/img/home.jpg')` }}
+        style={{ backgroundImage: `url('../src/img/home.JPG')` }}
       >
         <div className="logo-container">
           <img className="logoPage" src="../src/img/logo.png" alt="logoPage" />
