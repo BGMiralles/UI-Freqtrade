@@ -121,14 +121,10 @@ const getAllTechnicalResources = async (req: Request, res: Response) => {
         message: "Technical resources not found",
       });
     }
-    const niceView = technicalResources.map(resource => ({
-      name: resource.name,
-      description: resource.description,
-    }));
     return res.status(200).json({
       success: true,
       message: "Technical resources retrieved",
-      data: niceView,
+      data: technicalResources,
     });
   } catch (error) {
     return res.status(500).json({

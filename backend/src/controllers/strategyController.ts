@@ -97,7 +97,7 @@ const getMyStrategies = async (req: Request, res: Response) => {
         sell_signal_created_at: strategy.sellSignal.created_at,
         sell_signal_updated_at: strategy.sellSignal.updated_at,
         sell_technical_id: strategy.sellSignal.sell_technical_id,
-        time_frame_name: strategy.timeFrame.time_frame,
+        time_frame: strategy.timeFrame.time_frame,
       };
     });
 
