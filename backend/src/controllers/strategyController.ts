@@ -53,8 +53,7 @@ const getStrategyById = async (req: Request, res: Response) => {
       error: error,
     });
   }
-}
-;
+};
 const getMyStrategies = async (req: Request, res: Response) => {
   try {
     const strategy = await Strategy.find({
@@ -198,52 +197,75 @@ const createStrategy = async (req: Request, res: Response) => {
 
 const updateStrategy = async (req: Request, res: Response) => {
   const {
-    id,
+    parameter_1_buy,
+    parameter_2_buy,
+    parameter_1_sell,
+    parameter_2_sell,
+    time_frame_id,
     name,
     description,
-    buy_signal_id,
-    sell_signal_id,
-    time_frame_id,
+    buy_technical_resources_id,
+    sell_technical_resources_id,
+    id,
   } = req.body;
+
   try {
-    const strategy = await Strategy.findOneBy({
-      id,
+    const strategy = await Strategy.findOne({
+      where: { user_id: req.token.id, id: id },
+      relations: ["user", "buySignal", "sellSignal"],
     });
-    if (!strategy || strategy.user_id !== req.token.id) {
+
+    if (!strategy) {
       return res.status(404).json({
-        sucess: false,
+        success: false,
         message: "Strategy not found",
       });
     }
-    if (name) {
-      strategy.name = name;
+    const newStrategy = { ...strategy}
+    if (name) newStrategy.name = name;
+    if (description) newStrategy.description = description;
+    if (parameter_1_buy) newStrategy.buySignal.parameter_1 = parameter_1_buy;
+    if (parameter_2_buy) newStrategy.buySignal.parameter_2 = parameter_2_buy;
+    if (parameter_1_sell) newStrategy.sellSignal.parameter_1 = parameter_1_sell;
+    if (parameter_2_sell) newStrategy.sellSignal.parameter_2 = parameter_2_sell;
+    if (time_frame_id) newStrategy.time_frame_id = time_frame_id;
+
+    await Strategy.update(newStrategy.id, newStrategy); // Actualiza la estrategia principal
+
+    // Guarda las entidades relacionadas
+    await newStrategy.buySignal.save();
+    await newStrategy.sellSignal.save();
+
+    // Actualiza los técnicos de compra y venta
+    if (buy_technical_resources_id) {
+      await BuyTechnical.update(
+        { id: strategy.buySignal.buy_technical_id ?? 0 },
+        { technical_resources_id: buy_technical_resources_id }
+      );
     }
-    if (description) {
-      strategy.description = description;
+
+    if (sell_technical_resources_id) {
+      await SellTechnical.update(
+        { id: strategy.sellSignal.sell_technical_id ?? 0 },
+        { technical_resources_id: sell_technical_resources_id }
+      );
     }
-    if (buy_signal_id) {
-      strategy.buy_signal_id = buy_signal_id;
-    }
-    if (sell_signal_id) {
-      strategy.sell_signal_id = sell_signal_id;
-    }
-    if (time_frame_id) {
-      strategy.time_frame_id = time_frame_id;
-    }
-    await strategy.save();
+
     return res.status(200).json({
-      sucess: true,
+      success: true,
       message: "Strategy updated",
-      data: strategy,
+      data: newStrategy,
     });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({
-      sucess: false,
+      success: false,
       message: "Error updating strategy",
       error: error,
     });
   }
 };
+
 
 const deleteStrategy = async (req: Request, res: Response) => {
   const { id } = req.body;
@@ -260,7 +282,10 @@ const deleteStrategy = async (req: Request, res: Response) => {
       });
     }
 
-    await Strategy.update({ id: id }, { buy_signal_id: null, sell_signal_id: null });
+    await Strategy.update(
+      { id: id },
+      { buy_signal_id: null, sell_signal_id: null }
+    );
     if (strategy.buy_signal_id) {
       await BuySignal.update(
         { id: strategy.buy_signal_id },
