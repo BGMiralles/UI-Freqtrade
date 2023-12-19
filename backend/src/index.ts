@@ -11,9 +11,11 @@ import { router as routerSellSignal } from "./routes/sellSignalRoutes";
 import { router as routerSellTechnical } from "./routes/sellTechnicalRoutes";
 import { router as routerTrade } from "./routes/tradeRoutes";
 import { AppDataSource } from "./db";
+import  cors  from "cors";
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 const PORT = process.env.PORT || 3000
 app.use('/user', routerUsers)
 app.use('/role', routerRoles)
