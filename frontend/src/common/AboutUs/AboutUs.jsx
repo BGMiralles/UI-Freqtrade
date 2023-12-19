@@ -12,7 +12,7 @@ export const AboutUs = () => {
         <div className="textAboutUs">
           <p>
             <span className="colourText">
-              Welcome to our Rocket Tattoo studio
+              Welcome to our UI Freqtrade
             </span>
             , where tradition meets innovation to create timeless masterpieces
             on the skin. We take pride in{" "}

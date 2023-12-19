@@ -6,7 +6,7 @@
 
 .headerLogo {
   height: 4em;
-  width: 3.2em;
+  width: 7em;
   filter: drop-shadow(0 1px 1px gold);
 }
 
@@ -16,7 +16,7 @@
 }
 
 .blueColour {
-  color: gold;
+  color: green;
 }
 
 .text-navbar {
@@ -30,7 +30,12 @@
 
 .items-navbar:hover {
   cursor: pointer;
-  color: gold;
+  color: green;
+}
+
+.items-navbar-logout:hover {
+  cursor: pointer;
+  color: red;
 }
 
 .navbar-toggler-icon {

@@ -24,7 +24,7 @@ export const StaticNavbar = () => {
           <img className="headerLogo" src={"../src/img/logo.png"} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Brand className="text-white text-navbar-title" href="/">
-          ROCKET <span className="blueColour">TATTOO</span>
+          UI <span className="blueColour">FREQTRADE</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -57,7 +57,7 @@ export const StaticNavbar = () => {
                     {rdxCredentials.data.name}
                   </Nav.Link>
                   <div onClick={logOutMe}>
-                    <Nav.Link className="text-navbar items-navbar" href="/">
+                    <Nav.Link className="text-navbar items-navbar-logout" href="/">
                       LOG OUT
                     </Nav.Link>
                   </div>
