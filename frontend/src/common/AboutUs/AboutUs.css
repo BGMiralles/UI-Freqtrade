@@ -33,8 +33,8 @@
     overflow: hidden
 }
 
-.colourText {
-    color: gold
+.colourText-green {
+    color: green
 }
 
 .buttonBookDiv {
@@ -59,8 +59,8 @@
 
 .appointmentAboutUs:hover {
     cursor: pointer;
-    color: gold;
-    background-color: white;
+    color: white;
+    background-color: green;
     scale: 1.02;
     overflow: hidden;
 }

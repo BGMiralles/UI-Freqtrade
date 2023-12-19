@@ -11,15 +11,15 @@ export const AboutUs = () => {
         <img className="aboutUsLogo" src="../src/img/logo.png" alt="Logo" />
         <div className="textAboutUs">
           <p>
-            <span className="colourText">
-              Welcome to our UI Freqtrade
+            <span className="colourText-green">
+              Welcome to our Freqtrade UI
             </span>
-            , where tradition meets innovation to create timeless masterpieces
-            on the skin. We take pride in{" "}
-            <span className="colourText">blending </span>the classic aesthetics
-            of <span className="colourText"> Old School </span>with a modern and
-            fresh touch, providing our clients with a{" "}
-            <span className="colourText">unique experience </span>
+            , where automation meets profitability to create successful trading strategies
+            in the financial markets. We take pride in{" "}
+            <span className="colourText-green">combining </span>advanced algorithms
+            with real-time data to make informed trading decisions,
+            providing our users with a{" "}
+            <span className="colourText-green">powerful toolset </span>
           </p>
           <div className="buttonBookDiv">
             <Button className="appointmentAboutUs" onClick={()=> navigate("/about")}>About Us</Button>
