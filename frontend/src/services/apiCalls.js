@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const logUser = async (body) => {
   console.log(body);
-  let search = await axios.post(`http://localhost:4004/user/login`, body);
+  let search = await axios.post(`http://localhost:3000/user/login`, body);
   return search.data.token;
 };
 
@@ -14,7 +14,7 @@ export const logArtist = async (body) => {
 
 export const registerUser = async (body) => {
   console.log(body);
-  return await axios.post(`http://localhost:4004/user/register`, body);
+  return await axios.post(`http://localhost:3000/user/register`, body);
 };
 
 export const newAppointment = async (body, credentials) => {

@@ -32,12 +32,6 @@ export const StaticNavbar = () => {
             <Nav.Link className="text-navbar items-navbar" href="/">
               HOME
             </Nav.Link>
-            <Nav.Link className="text-navbar items-navbar" href="/gallery">
-              GALLERY
-            </Nav.Link>
-            <Nav.Link className="text-navbar items-navbar" href="/artists">
-              ARTISTS
-            </Nav.Link>
             <Nav.Link className="text-navbar items-navbar" href="/about">
               ABOUT US
             </Nav.Link>
@@ -46,15 +40,15 @@ export const StaticNavbar = () => {
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
-                    href="/superadmin"
+                    href="/strategies"
                   >
-                    SUPER ADMIN
+                    STRATEGIES
                   </Nav.Link>
                   <Nav.Link
                     className="text-navbar items-navbar"
-                    href="/myappointments"
+                    href="/trades"
                   >
-                    {rdxCredentials.data.name}
+                    TRADES
                   </Nav.Link>
                   <div onClick={logOutMe}>
                     <Nav.Link className="text-navbar items-navbar-logout" href="/">
@@ -66,9 +60,15 @@ export const StaticNavbar = () => {
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
-                    href="/appointments"
+                    href="/strategies"
                   >
-                    APPOINTMENTS
+                    STRATEGIES
+                  </Nav.Link>
+                  <Nav.Link
+                    className="text-navbar items-navbar"
+                    href="/trades"
+                  >
+                    TRADES
                   </Nav.Link>
                   <Nav.Link
                     className="text-navbar items-navbar"
@@ -87,9 +87,6 @@ export const StaticNavbar = () => {
               <>
                 <Nav.Link className="text-navbar items-navbar" href="/login">
                   LOGIN
-                </Nav.Link>
-                <Nav.Link className="text-navbar items-navbar" href="/workers">
-                  WORKERS
                 </Nav.Link>
                 <Nav.Link className="text-navbar items-navbar" href="/register">
                   REGISTER

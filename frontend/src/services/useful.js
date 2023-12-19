@@ -13,8 +13,8 @@ export const validator = (type, value) => {
             }
 
         case 'name':
-        case 'username':
-            case 'tattoo_artist':
+        case 'nickname':
+        case 'tattoo_artist':
         case 'surname':
 
             if(value.length > 25){

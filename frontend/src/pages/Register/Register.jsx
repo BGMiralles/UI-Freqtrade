@@ -9,16 +9,16 @@ export const Register = () => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
-    username: "",
+    name: "",
     email: "",
-    phone_number: "",
+    nickname: "",
     password: "",
   });
 
   const [userError, setUserError] = useState({
-    usernameError: "",
+    nameError: "",
     emailError: "",
-    phone_numberError: "",
+    nicknameError: "",
     passwordError: "",
   });
 
@@ -66,10 +66,10 @@ export const Register = () => {
       <CustomInput
         disabled={false}
         design={`inputDesign ${
-          userError.usernameError !== "" ? "inputDesignError" : ""
+          userError.nameError !== "" ? "inputDesignError" : ""
         }`}
         type={"text"}
-        name={"username"}
+        name={"name"}
         placeholder={""}
         value={""}
         functionProp={functionHandler}
@@ -77,10 +77,10 @@ export const Register = () => {
       />
       <div
         className={`errorMsgVoid ${
-          userError.usernameError !== "" ? "errorMsg" : ""
+          userError.nameError !== "" ? "errorMsg" : ""
         }`}
       >
-        {userError.usernameError}
+        {userError.nameError}
       </div>
       <div className="header">Email</div>
       <CustomInput
@@ -102,14 +102,14 @@ export const Register = () => {
       >
         {userError.emailError}
       </div>
-      <div className="header">Phone Number</div>
+      <div className="header">Nick Name</div>
       <CustomInput
         disabled={false}
         design={`inputDesign ${
-          userError.phone_numberError !== "" ? "inputDesignError" : ""
+          userError.nicknameError !== "" ? "inputDesignError" : ""
         }`}
         type={"text"}
-        name={"phone_number"}
+        name={"nickname"}
         placeholder={""}
         value={""}
         functionProp={functionHandler}
@@ -117,10 +117,10 @@ export const Register = () => {
       />
       <div
         className={`errorMsgVoid ${
-          userError.phone_numberError !== "" ? "errorMsg" : ""
+          userError.nicknameError !== "" ? "errorMsg" : ""
         }`}
       >
-        {userError.phone_numberError}
+        {userError.nicknameError}
       </div>
       <div className="header">Password</div>
       <CustomInput
@@ -142,7 +142,7 @@ export const Register = () => {
       >
         {userError.passwordError}
       </div>
-      <div className="buttonSubmit" onClick={Submit}>
+      <div className="buttonSubmit-green" onClick={Submit}>
         Submit
       </div>
     </div>

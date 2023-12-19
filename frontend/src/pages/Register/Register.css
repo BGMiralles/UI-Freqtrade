@@ -39,14 +39,14 @@
   display: flex;
 }
 
-.buttonSubmit {
+.buttonSubmit-green {
   height: 3em;
   width: 8em;
   font-size: 1.5em;
 
   border-radius: 1em;
-  background-color: #5086c1;
-  color: white;
+  background-color: greenyellow;
+  color: black;
   font-weight: bolder;
 
   display: flex;
@@ -55,7 +55,7 @@
   margin-top: 0.5em;
 }
 
-@-webkit-keyframes buttonSubmit {
+@-webkit-keyframes buttonSubmit-green {
   from {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -90,7 +90,7 @@
   }
 }
 
-@keyframes buttonSubmit {
+@keyframes buttonSubmit-green {
   from {
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -125,9 +125,9 @@
   }
 }
 
-.buttonSubmit:hover {
+.buttonSubmit-green:hover {
   transition: 0.4s;
-  background-color: #f47e8e;
+  background-color: green;
   cursor: pointer;
   -webkit-animation: buttonSubmit 1.5s ease-in-out infinite both;
   animation: buttonSubmit 1.5s ease-in-out infinite both;

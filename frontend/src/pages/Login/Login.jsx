@@ -105,7 +105,7 @@ export const Login = () => {
       >
         {userError.passwordError}
       </div>
-      <div className="buttonSubmit" onClick={LogMe}>
+      <div className="buttonSubmit-green" onClick={LogMe}>
         Login
       </div>
     </div>
