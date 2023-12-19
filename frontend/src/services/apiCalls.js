@@ -29,9 +29,10 @@ export const allTechnicals = async (credentials) => {
   });
 }
 
-export const logArtist = async (body) => {
+export const updateStrategy = async (body, credentials) => {
   console.log(body);
-  let search = await axios.post(`http://localhost:4004/artist/login`, body);
+  let search = await axios.put(`http://localhost:3000/strategy/updateStrategy`, body,
+  { headers: { Authorization: `Bearer ${credentials}` } });
   return search.data.token;
 };
 
