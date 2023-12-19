@@ -6,15 +6,33 @@ export const logUser = async (body) => {
   return search.data.token;
 };
 
+export const registerUser = async (body) => {
+  console.log(body);
+  return await axios.post(`http://localhost:3000/user/register`, body);
+};
+
+export const updateProfile = async (profile, credentials) => {
+  return await axios.put("http://localhost:3000/user/update", profile, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
+
+export const myStrategy = async (credentials) => {
+  return await axios.get("http://localhost:3000/strategy/getMyStrategies", {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
+export const allTechnicals = async (credentials) => {
+  return await axios.get("http://localhost:3000/technicalresource/getAllTechnicalResources", {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
 export const logArtist = async (body) => {
   console.log(body);
   let search = await axios.post(`http://localhost:4004/artist/login`, body);
   return search.data.token;
-};
-
-export const registerUser = async (body) => {
-  console.log(body);
-  return await axios.post(`http://localhost:3000/user/register`, body);
 };
 
 export const newAppointment = async (body, credentials) => {
@@ -30,12 +48,6 @@ export const bringTattooArtists = async () => {
 
 export const bringTattoo = async () => {
   return await axios.get(`http://localhost:4004/tattoo/all`);
-};
-
-export const updateProfile = async (profile, credentials) => {
-  return await axios.put("http://localhost:3000/user/update", profile, {
-    headers: { Authorization: `Bearer ${credentials}` },
-  });
 };
 
 export const updateAppointment = async (appointmentId, editedValues, credentials) => {
