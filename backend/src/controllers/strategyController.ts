@@ -4,6 +4,7 @@ import { BuySignal } from "../models/BuySignal";
 import { SellSignal } from "../models/SellSignal";
 import { SellTechnical } from "../models/SellTechnical";
 import { BuyTechnical } from "../models/BuyTechnical";
+import { In } from "typeorm";
 
 const getAllStrategies = async (req: Request, res: Response) => {
   try {
@@ -56,7 +57,7 @@ const getStrategyById = async (req: Request, res: Response) => {
 };
 const getMyStrategies = async (req: Request, res: Response) => {
   try {
-    const strategy = await Strategy.find({
+    const strategies = await Strategy.find({
       select: {
         id: true,
         name: true,
@@ -71,14 +72,42 @@ const getMyStrategies = async (req: Request, res: Response) => {
       relations: ["user", "buySignal", "sellSignal", "timeFrame"],
     });
 
-    if (!strategy) {
+    if (!strategies) {
       return res.status(404).json({
         success: false,
-        message: "Strategy not found",
+        message: "Strategies not found",
       });
     }
 
-    const niceView = strategy.map((strategy) => {
+    // Obtener todos los buy_signal_id y sell_signal_id de las estrategias
+    const buySignalIds = strategies.map((strategy) => strategy.buy_signal_id);
+    const sellSignalIds = strategies.map((strategy) => strategy.sell_signal_id);
+
+    // Consultar los technical_resources_id correspondientes a los buy_signal_id y sell_signal_id
+    const buyResources = await BuyTechnical.find({
+      select: ["buy_signal_id", "technical_resources_id"],
+      where: {
+        buy_signal_id: In(buySignalIds),
+      },
+    });
+
+    const sellResources = await SellTechnical.find({
+      select: ["sell_signal_id", "technical_resources_id"],
+      where: {
+        sell_signal_id: In(sellSignalIds),
+      },
+    });
+
+    // Mapear los recursos técnicos a los buy_signal_id y sell_signal_id en las estrategias
+    const niceView = strategies.map((strategy) => {
+      const buyResource = buyResources.find(
+        (resource) => resource.buy_signal_id === strategy.buy_signal_id
+      );
+
+      const sellResource = sellResources.find(
+        (resource) => resource.sell_signal_id === strategy.sell_signal_id
+      );
+
       return {
         id: strategy.id,
         name: strategy.name,
@@ -88,32 +117,36 @@ const getMyStrategies = async (req: Request, res: Response) => {
         time_frame_id: strategy.time_frame_id,
         buy_signal_parameter_1: strategy.buySignal.parameter_1,
         buy_signal_parameter_2: strategy.buySignal.parameter_2,
-        buy_signal_created_at: strategy.buySignal.created_at,
-        buy_signal_updated_at: strategy.buySignal.updated_at,
         buy_technical_id: strategy.buySignal.buy_technical_id,
+        buy_technical_resources_id: buyResource
+          ? buyResource.technical_resources_id
+          : null,
         sell_signal_parameter_1: strategy.sellSignal.parameter_1,
         sell_signal_parameter_2: strategy.sellSignal.parameter_2,
-        sell_signal_created_at: strategy.sellSignal.created_at,
-        sell_signal_updated_at: strategy.sellSignal.updated_at,
         sell_technical_id: strategy.sellSignal.sell_technical_id,
+        sell_technical_resources_id: sellResource
+          ? sellResource.technical_resources_id
+          : null,
         time_frame: strategy.timeFrame.time_frame,
       };
     });
 
     return res.status(200).json({
       success: true,
-      message: "Strategy retrieved",
+      message: "Strategies retrieved",
       data: niceView,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
       success: false,
-      message: "Error retrieving strategy",
+      message: "Error retrieving strategies",
       error: error,
     });
   }
 };
+
+
 
 const createStrategy = async (req: Request, res: Response) => {
   const {
@@ -221,7 +254,7 @@ const updateStrategy = async (req: Request, res: Response) => {
         message: "Strategy not found",
       });
     }
-    const newStrategy = { ...strategy}
+    const newStrategy = { ...strategy };
     if (name) newStrategy.name = name;
     if (description) newStrategy.description = description;
     if (parameter_1_buy) newStrategy.buySignal.parameter_1 = parameter_1_buy;
@@ -265,7 +298,6 @@ const updateStrategy = async (req: Request, res: Response) => {
     });
   }
 };
-
 
 const deleteStrategy = async (req: Request, res: Response) => {
   const { id } = req.body;
