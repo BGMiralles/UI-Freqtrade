@@ -29,6 +29,12 @@ export const allTechnicals = async (credentials) => {
   });
 }
 
+export const allTimeFrames = async (credentials) => {
+  return await axios.get("http://localhost:3000/timeframe/getAllTimeFrames", {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
+
 export const updateStrategy = async (strategyId, editedValues, credentials) => {
   try {
     const response = await axios.put(
@@ -37,12 +43,19 @@ export const updateStrategy = async (strategyId, editedValues, credentials) => {
       { headers: { Authorization: `Bearer ${credentials}` } }
     );
 
-    console.log('Response from updateAppointment:', response.data);
+    console.log('Response from updateAppointment:', response.data.data);
     return response.data;
   } catch (error) {
     console.error('Error in updateAppointment:', error);
     throw error;
   }
+};
+
+export const deleteMyStrategy = async (strategyId, credentials) => {
+  return await axios.delete("http://localhost:3000/strategy/deleteStrategy", {
+    data: { id: strategyId },
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
 };
 
 export const newAppointment = async (body, credentials) => {
@@ -75,6 +88,7 @@ export const updateAppointment = async (strategyId, editedValues, credentials) =
       throw error;
     }
   };
+  
   
 
 export const myappointments = async (credentials) => {
