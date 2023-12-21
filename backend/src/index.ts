@@ -10,6 +10,7 @@ import { router as routerStrategy } from "./routes/strategyRoutes";
 import { router as routerSellSignal } from "./routes/sellSignalRoutes";
 import { router as routerSellTechnical } from "./routes/sellTechnicalRoutes";
 import { router as routerTrade } from "./routes/tradeRoutes";
+import { router as routerSuperAdmin } from "./routes/superAdminRoutes";
 import { AppDataSource } from "./db";
 import  cors  from "cors";
 
@@ -27,6 +28,7 @@ app.use('/sellsignal', routerSellSignal)
 app.use('/selltechnical', routerSellTechnical)
 app.use('/strategy', routerStrategy)
 app.use('/trade', routerTrade)
+app.use('/superadmin', routerSuperAdmin)
 
 AppDataSource.initialize()
   .then(() => {

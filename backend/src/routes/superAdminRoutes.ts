@@ -8,6 +8,7 @@ const router = Router()
 
 
 router.put('/update', auth, isSuperAdmin, updateUserRole)
+router.get('/all', auth, isSuperAdmin, getAllUsers)
 
 
 
