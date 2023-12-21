@@ -58,6 +58,12 @@ export const deleteMyStrategy = async (strategyId, credentials) => {
   });
 };
 
+export const newStrategy = async (body, credentials) => {
+  console.log(body);
+  return await axios.post(`http://localhost:3000/strategy/createStrategy`, body, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
 export const newAppointment = async (body, credentials) => {
   console.log(body);
   return await axios.post(`http://localhost:4004/appointments/create`, body, {
