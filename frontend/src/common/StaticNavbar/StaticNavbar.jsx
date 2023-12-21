@@ -40,7 +40,7 @@ export const StaticNavbar = () => {
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
-                    href="/strategies"
+                    href="/superstrategies"
                   >
                     STRATEGIES
                   </Nav.Link>
@@ -49,6 +49,12 @@ export const StaticNavbar = () => {
                     href="/trades"
                   >
                     TRADES
+                  </Nav.Link>
+                  <Nav.Link
+                    className="text-navbar items-navbar"
+                    href="/profile"
+                  >
+                    {rdxCredentials.data.name.toUpperCase()}
                   </Nav.Link>
                   <div onClick={logOutMe}>
                     <Nav.Link className="text-navbar items-navbar-logout" href="/">

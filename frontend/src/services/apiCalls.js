@@ -23,6 +23,12 @@ export const myStrategy = async (credentials) => {
   });
 }
 
+export const superAdminStrategies = async (credentials) => {
+  return await axios.get("http://localhost:3000/strategy/allStrategies", {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
 export const allTechnicals = async (credentials) => {
   return await axios.get("http://localhost:3000/technicalresource/getAllTechnicalResources", {
     headers: { Authorization: `Bearer ${credentials}` },

@@ -10,6 +10,7 @@ import { MyAppointments } from '../MyAppointments/MyAppointments';
 import { SuperAdmin } from '../SuperAdmin/SuperAdmin';
 import { Strategy } from '../Strategy/Strategy';
 import { ViewNewStrategy } from '../ViewNewStrategy/ViewNewStrategy';
+import { ViewSuperStrategy } from '../ViewSuperStrategies/ViewSuperStrategies';
 
 
 export const Body = () => {
@@ -23,6 +24,7 @@ export const Body = () => {
                 <Route path="/profile" element={<Profile />}/>
                 <Route path="/about" element={<AboutView />}/>
                 <Route path="/strategies" element={<Strategy />}/>
+                <Route path="/superstrategies" element={<ViewSuperStrategy />}/>
                 <Route path="/newstrategy" element={<ViewNewStrategy />}/>
                 <Route path="/newappointments" element={<NewAppoint />}/>
                 <Route path="/appointments" element={<Appointment />}/>
