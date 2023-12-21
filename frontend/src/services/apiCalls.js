@@ -29,6 +29,12 @@ export const superAdminStrategies = async (credentials) => {
   });
 }
 
+export const allUsers = async (credentials) => {
+  return await axios.get("http://localhost:3000/superadmin/all", {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
 export const allTechnicals = async (credentials) => {
   return await axios.get("http://localhost:3000/technicalresource/getAllTechnicalResources", {
     headers: { Authorization: `Bearer ${credentials}` },
