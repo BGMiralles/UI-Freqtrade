@@ -22,11 +22,6 @@ export const SuperStrategies = ({
     "time_frame_id",
   ];
 
-    console.log("data:", data);
-  console.log("allUsersData:", allUsersData);
-  console.log("allTechnicalsData",allTechnicalsData);
-  console.log("allTimeFramesData",allTimeFramesData);
-
   const getTechnicalNameById = (technicalId) => {
     const technical = allTechnicalsData.find(
       (technical) => technical.id === technicalId
@@ -47,24 +42,19 @@ export const SuperStrategies = ({
   };
 
   const getCellValue = (header, value) => {
-    console.log(`Getting cell value for header "${header}" with value "${value}"`);
   
     switch (header) {
       case "user_id":
         const userName = getUserNameById(value);
-        console.log(`User name for user ID ${value}: ${userName}`);
         return userName;
       case "time_frame_id":
         const timeFrameName = getTimeFrameNameById(value);
-        console.log(`Time frame name for time frame ID ${value}: ${timeFrameName}`);
         return timeFrameName;
       default:
         return header.endsWith("_id") ? getTechnicalNameById(value) : value;
     }
   };
-  
-  console.log("Rendering SuperStrategies with data:", data);
-  
+    
   return (
     <table>
       <thead>

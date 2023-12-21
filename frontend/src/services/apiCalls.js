@@ -47,6 +47,22 @@ export const allTimeFrames = async (credentials) => {
   });
 };
 
+export const deleteTimeFrame = async (timeId, credentials) => {
+  try {
+    const response = await axios.delete(
+      'http://localhost:3000/timeframe/deleteTimeFrame',
+      {
+        headers: { Authorization: `Bearer ${credentials}` },
+        data: { id: timeId }, // Coloca el ID en la propiedad data
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 export const updateStrategy = async (strategyId, editedValues, credentials) => {
   try {
     const response = await axios.put(
@@ -76,6 +92,7 @@ export const newStrategy = async (body, credentials) => {
     headers: { Authorization: `Bearer ${credentials}` },
   });
 };
+
 export const newAppointment = async (body, credentials) => {
   console.log(body);
   return await axios.post(`http://localhost:4004/appointments/create`, body, {
