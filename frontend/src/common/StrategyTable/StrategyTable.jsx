@@ -9,6 +9,7 @@ import {
 import "./StrategyTable.css";
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
+import { LinkButton } from "../LinkButton/LinkButton";
 
 export const StrategyTable = () => {
   const datosRdxUser = useSelector(userData);
@@ -335,16 +336,16 @@ export const StrategyTable = () => {
                 {isEditing && strategy.id === editingId ? (
                   <>
                     <button onClick={() => handleSaveEdit(strategy.id)}>
-                      Guardar
+                      Save
                     </button>
-                    <button onClick={handleCancelEdit}>Cancelar</button>
+                    <button onClick={handleCancelEdit}>Cancel</button>
                     <button onClick={() => handleDelete(strategy.id)}>
-                      Eliminar
+                      Delete
                     </button>
                   </>
                 ) : (
                   <button onClick={() => handleEdit(strategy.id)}>
-                    Editar
+                    Edit
                   </button>
                 )}
               </td>
@@ -352,6 +353,7 @@ export const StrategyTable = () => {
           ))}
         </tbody>
       </table>
+      <LinkButton path="/newstrategy" title="New Strategy" />
     </div>
   );
 };
