@@ -8,7 +8,78 @@ import { In } from "typeorm";
 
 const getAllStrategies = async (req: Request, res: Response) => {
   try {
-    const strategies = await Strategy.find();
+    const strategies = await Strategy.find({
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        buy_signal_id: true,
+        sell_signal_id: true,
+        time_frame_id: true,
+      },
+      relations: ["user", "buySignal", "sellSignal", "timeFrame"],
+    });
+
+    if (!strategies) {
+      return res.status(404).json({
+        success: false,
+        message: "Strategies not found",
+      });
+    }
+
+    // Obtener todos los buy_signal_id y sell_signal_id de las estrategias
+    const buySignalIds = strategies.map((strategy) => strategy.buy_signal_id);
+    const sellSignalIds = strategies.map((strategy) => strategy.sell_signal_id);
+
+    // Consultar los technical_resources_id correspondientes a los buy_signal_id y sell_signal_id
+    const buyResources = await BuyTechnical.find({
+      select: ["buy_signal_id", "technical_resources_id"],
+      where: {
+        buy_signal_id: In(buySignalIds),
+      },
+    });
+
+    const sellResources = await SellTechnical.find({
+      select: ["sell_signal_id", "technical_resources_id"],
+      where: {
+        sell_signal_id: In(sellSignalIds),
+      },
+    });
+
+    // Mapear los recursos técnicos a los buy_signal_id y sell_signal_id en las estrategias
+    const niceView = strategies.map((strategy) => {
+      const buyResource = buyResources.find(
+        (resource) => resource.buy_signal_id === strategy.buy_signal_id
+      );
+
+      const sellResource = sellResources.find(
+        (resource) => resource.sell_signal_id === strategy.sell_signal_id
+      );
+
+      return {
+        id: strategy.id,
+        user: strategy.user.name,
+        name: strategy.name,
+        description: strategy.description,
+        buy_signal_id: strategy.buy_signal_id,
+        sell_signal_id: strategy.sell_signal_id,
+        time_frame_id: strategy.time_frame_id,
+        buy_signal_parameter_1: strategy.buySignal.parameter_1,
+        buy_signal_parameter_2: strategy.buySignal.parameter_2,
+        buy_technical_id: strategy.buySignal.buy_technical_id,
+        buy_technical_resources_id: buyResource
+          ? buyResource.technical_resources_id
+          : null,
+        sell_signal_parameter_1: strategy.sellSignal.parameter_1,
+        sell_signal_parameter_2: strategy.sellSignal.parameter_2,
+        sell_technical_id: strategy.sellSignal.sell_technical_id,
+        sell_technical_resources_id: sellResource
+          ? sellResource.technical_resources_id
+          : null,
+        time_frame: strategy.timeFrame.time_frame,
+      };
+    });
+
     if (!strategies) {
       return res.status(404).json({
         success: false,
@@ -19,7 +90,7 @@ const getAllStrategies = async (req: Request, res: Response) => {
     return res.status(200).json({
       success: true,
       message: "Strategies retrieved",
-      data: strategies,
+      data: niceView,
     });
   } catch (error) {
     console.log(error);
