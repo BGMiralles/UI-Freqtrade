@@ -47,6 +47,12 @@ export const allTimeFrames = async (credentials) => {
   });
 };
 
+export const createTimeFrame = async (data, credentials) => {
+  return await axios.post(`http://localhost:3000/timeframe/createTimeFrame`, data, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
+
 export const deleteTimeFrame = async (timeId, credentials) => {
   try {
     const response = await axios.delete(
