@@ -57,9 +57,9 @@ const deleteUser = async (req: Request, res: Response) => {
 
 const updateUserRole = async (req: Request, res: Response) => {
   try {
-    const { id, role } = req.body;
+    const { id, role_id } = req.body;
 
-    if (!id || !role) {
+    if (!id || !role_id) {
       return res.status(400).json({
         success: false,
         message: "Invalid user ID or role",
@@ -76,7 +76,7 @@ const updateUserRole = async (req: Request, res: Response) => {
       });
     }
 
-    userToUpdate.role = role;
+    userToUpdate.role_id = role_id;
     await userToUpdate.save();
 
     return res.status(200).json({
