@@ -41,6 +41,26 @@ export const allTechnicals = async (credentials) => {
   });
 }
 
+export const updateTechnical = async (technicalId, data, credentials) => {
+  return await axios.put("http://localhost:3000/technicalresource/updateTechnicalResource", 
+    { id: technicalId, ...data }, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
+export const deleteTechnical = async (technicalId, credentials) => {
+  return await axios.delete("http://localhost:3000/technicalresource/deleteTechnicalResource",{
+    data: { id: technicalId },
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
+
+export const createTechnical = async (data, credentials) => {
+  return await axios.post(`http://localhost:3000/technicalresource/createTechnicalResource`, data, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+};
+
 export const allTimeFrames = async (credentials) => {
   return await axios.get("http://localhost:3000/timeframe/getAllTimeFrames", {
     headers: { Authorization: `Bearer ${credentials}` },
