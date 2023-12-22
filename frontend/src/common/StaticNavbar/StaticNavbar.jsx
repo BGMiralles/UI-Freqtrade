@@ -40,6 +40,12 @@ export const StaticNavbar = () => {
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
+                    href="/allusers"
+                  >
+                    USERS
+                  </Nav.Link>
+                  <Nav.Link
+                    className="text-navbar items-navbar"
                     href="/timeframes"
                   >
                     TIME FRAMES
