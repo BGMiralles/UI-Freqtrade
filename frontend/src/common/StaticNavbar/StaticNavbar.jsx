@@ -40,7 +40,7 @@ export const StaticNavbar = () => {
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
-                    href="/allusers"
+                    href="/users"
                   >
                     USERS
                   </Nav.Link>

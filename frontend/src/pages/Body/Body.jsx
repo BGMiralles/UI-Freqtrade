@@ -4,7 +4,6 @@ import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
 import { Profile } from '../Profile/Profile';
 import { AboutView } from "../About/About";
-import { Appointment } from '../Appointments/Appointments';
 import { MyAppointments } from '../MyAppointments/MyAppointments';
 import { SuperAdmin } from '../SuperAdmin/SuperAdmin';
 import { Strategy } from '../Strategy/Strategy';
@@ -12,6 +11,7 @@ import { ViewNewStrategy } from '../ViewNewStrategy/ViewNewStrategy';
 import { ViewSuperStrategy } from '../ViewSuperStrategies/ViewSuperStrategies';
 import { TimeFrame } from '../TimeFrame/TimeFrame';
 import { ViewSuperTechnicals } from '../ViewSuperTechnicals/ViewSuperTechnicals';
+import { ViewSuperUsers } from '../ViewSuperUsers/ViewSuperUsers';
 
 
 export const Body = () => {
@@ -29,6 +29,7 @@ export const Body = () => {
                 <Route path="/newstrategy" element={<ViewNewStrategy />}/>
                 <Route path="/timeframes" element={<TimeFrame />}/>
                 <Route path="/technicals" element={<ViewSuperTechnicals />}/>
+                <Route path="/users" element={<ViewSuperUsers />}/>
                 <Route path="/myappointments" element={<MyAppointments />}/>
                 <Route path="/superadmin" element={<SuperAdmin />}/>
             </Routes>

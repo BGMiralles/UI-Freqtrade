@@ -48,6 +48,13 @@ export const updateTechnical = async (technicalId, data, credentials) => {
   });
 }
 
+export const updateUserRole = async (technicalId, data, credentials) => {
+  return await axios.put("http://localhost:3000/superadmin/update", 
+    { id: technicalId, ...data }, {
+    headers: { Authorization: `Bearer ${credentials}` },
+  });
+}
+
 export const deleteTechnical = async (technicalId, credentials) => {
   return await axios.delete("http://localhost:3000/technicalresource/deleteTechnicalResource",{
     data: { id: technicalId },
