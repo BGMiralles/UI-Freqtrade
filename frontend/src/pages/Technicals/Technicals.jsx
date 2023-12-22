@@ -1,5 +1,5 @@
 import React from 'react';
-import { TechnicalsTable } from '../../common/SuperTechnicals/SuperTechnicals';
+import { UserTechnicalsTable } from '../../common/TechnicalsTable/TechnicalsTable';
 
 export const Technicals = () => {
     return (
