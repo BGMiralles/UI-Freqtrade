@@ -27,7 +27,7 @@ export const Body = () => {
                 <Route path="/superstrategies" element={<ViewSuperStrategy />}/>
                 <Route path="/newstrategy" element={<ViewNewStrategy />}/>
                 <Route path="/timeframes" element={<TimeFrame />}/>
-                <Route path="/appointments" element={<Appointment />}/>
+                <Route path="/technicals" element={<Appointment />}/>
                 <Route path="/myappointments" element={<MyAppointments />}/>
                 <Route path="/superadmin" element={<SuperAdmin />}/>
             </Routes>

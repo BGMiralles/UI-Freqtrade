@@ -46,6 +46,12 @@ export const StaticNavbar = () => {
                   </Nav.Link>
                   <Nav.Link
                     className="text-navbar items-navbar"
+                    href="/technicals"
+                  >
+                    TECHNICAL RESOURCES
+                  </Nav.Link>
+                  <Nav.Link
+                    className="text-navbar items-navbar"
                     href="/superstrategies"
                   >
                     STRATEGIES
