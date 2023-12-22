@@ -11,6 +11,7 @@ import { Strategy } from '../Strategy/Strategy';
 import { ViewNewStrategy } from '../ViewNewStrategy/ViewNewStrategy';
 import { ViewSuperStrategy } from '../ViewSuperStrategies/ViewSuperStrategies';
 import { TimeFrame } from '../TimeFrame/TimeFrame';
+import { ViewSuperTechnicals } from '../ViewSuperTechnicals/ViewSuperTechnicals';
 
 
 export const Body = () => {
@@ -27,7 +28,7 @@ export const Body = () => {
                 <Route path="/superstrategies" element={<ViewSuperStrategy />}/>
                 <Route path="/newstrategy" element={<ViewNewStrategy />}/>
                 <Route path="/timeframes" element={<TimeFrame />}/>
-                <Route path="/technicals" element={<Appointment />}/>
+                <Route path="/technicals" element={<ViewSuperTechnicals />}/>
                 <Route path="/myappointments" element={<MyAppointments />}/>
                 <Route path="/superadmin" element={<SuperAdmin />}/>
             </Routes>
