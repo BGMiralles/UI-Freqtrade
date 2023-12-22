@@ -84,15 +84,26 @@ export const NewStrategy = () => {
     e.preventDefault();
     const tokenDecoded = jwtDecode(datosRdxUser.credentials);
     const newDataWithUserId = { ...newStrategyData, user_id: tokenDecoded.id };
-
-    try {
-      await newStrategy(newDataWithUserId, datosRdxUser.credentials);
-      navigate("/strategies");
-      // Puedes redirigir o realizar otras acciones después de crear la estrategia
-    } catch (error) {
-      console.error("Error creating new strategy:", error);
+  
+    // Validación para asegurarse de que todos los campos estén completos
+    const areAllFieldsFilled = Object.values(newDataWithUserId).every(
+      (value) => value !== null && value !== undefined && value !== ""
+    );
+  
+    if (areAllFieldsFilled) {
+      try {
+        await newStrategy(newDataWithUserId, datosRdxUser.credentials);
+        navigate("/strategies");
+        // Puedes redirigir o realizar otras acciones después de crear la estrategia
+      } catch (error) {
+        console.error("Error creating new strategy:", error);
+      }
+    } else {
+      // Maneja la lógica cuando algún campo está incompleto
+      console.error("Por favor, completa todos los campos antes de crear la estrategia.");
     }
   };
+  
 
   return (
     <div className="newStrategy">

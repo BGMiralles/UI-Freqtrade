@@ -50,17 +50,18 @@ export const Profile = () => {
   };
   
   const sendData = () => {
-    updateProfile(profile, datosRdxUser.credentials)
+    const updatedProfile = {
+      ...profile,
+      nickname: profile.nickname.toLowerCase(),
+    };
+  
+    updateProfile(updatedProfile, datosRdxUser.credentials)
       .then((resultado) => {
-        setIsEnabled(true);
-
-        console.log(profile);
-        console.log(datosRdxUser.credentials);
-        console.log(datosRdxUser.data);
-        console.log(resultado);
-      })
-      .catch((error) => console.log(error));
+          setIsEnabled(true);
+        })
+        .catch((error) => console.log(error));
   };
+  
 
   return (
     <div className="profileDesign">

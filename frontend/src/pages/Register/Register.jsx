@@ -23,11 +23,13 @@ export const Register = () => {
   });
 
   const functionHandler = (e) => {
+    const value = e.target.name === 'nickname' ? e.target.value.toLowerCase() : e.target.value;  
     setUser((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     }));
   };
+  
 
   const errorCheck = (e) => {
     let error = "";
