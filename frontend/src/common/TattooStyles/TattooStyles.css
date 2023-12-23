@@ -5,7 +5,7 @@
   height: 40em;
   background-color: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   font-family: "Abgalumo", cursive;
   overflow: hidden;
@@ -36,9 +36,13 @@
 }
 
 .image-wrapper {
-  position: relative;
+  flex-direction: row;
   width: 25%;
   cursor: pointer;
+}
+
+.ajust{
+  width: 70%;
 }
 
 .image-tattoo {
@@ -54,5 +58,5 @@
   .image-container
   .image-wrapper.flipped
   .image-tattoo {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) rotateX(180deg);
 }

@@ -11,7 +11,7 @@
     margin-top: 5em;
   }
   
-  .technTable {
+  .strategyTable {
     border-collapse: collapse;
     width: 10 em;
     color: white;
@@ -22,7 +22,7 @@
     background-color: black;
   }
   
-  .technHeader{
+  .strategyHeaders{
       background-color: black;
       color: white;
       text-align: center;
@@ -30,4 +30,20 @@
 
   .technIn{
     font-size: 1em;
+  }
+
+  td, th{
+    padding: 1em;
+  }
+
+  .green{
+    background-color: green;
+  }
+
+  .red{
+    background-color: red;
+  }
+
+  .yellow{
+    background-color: orange;
   }

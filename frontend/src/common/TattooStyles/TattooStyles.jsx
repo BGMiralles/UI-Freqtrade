@@ -33,33 +33,21 @@ export const TattooStyles = () => {
             <img
               className="image-tattoo"
               src={
-                isFlipped1 ? "./src/img/tattoo1.jpg" : "./src/img/tattoo5.png"
+                isFlipped1 ? "./src/img/texto-1.JPG" : "./src/img/strategy.JPG"
               }
               alt={`Tattoo ${isFlipped1 ? "1B" : "1A"}`}
             />
           </div>
           <div
-            className={`image-wrapper ${isFlipped2 ? "flipped" : ""}`}
+            className={`image-wrapper ajust ${isFlipped2 ? "flipped" : ""}`}
             onClick={handleFlip2}
           >
             <img
               className="image-tattoo"
               src={
-                isFlipped2 ? "./src/img/tattoo2.jpg" : "./src/img/tattoo4.jpg"
+                isFlipped2 ? "./src/img/texto-2.JPG" : "./src/img/strategy2.JPG"
               }
               alt={`Tattoo ${isFlipped2 ? "2B" : "2A"}`}
-            />
-          </div>
-          <div
-            className={`image-wrapper ${isFlipped3 ? "flipped" : ""}`}
-            onClick={handleFlip3}
-          >
-            <img
-              className="image-tattoo"
-              src={
-                isFlipped3 ? "./src/img/tattoo3.jpg" : "./src/img/tattoo6.jpg"
-              }
-              alt={`Tattoo ${isFlipped3 ? "3B" : "3A"}`}
             />
           </div>
         </div>

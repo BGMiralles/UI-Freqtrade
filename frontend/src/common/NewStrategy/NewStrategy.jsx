@@ -4,6 +4,7 @@ import {
   allTimeFrames,
   newStrategy,
 } from "../../services/apiCalls";
+import './NewStrategy.css';
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
 import { DropdownInput } from "../DropdownInput/DropdownInput";
@@ -56,7 +57,6 @@ export const NewStrategy = () => {
   };
 
   const handleDropdownChange = (name, value) => {
-    // Obtener el id asociado al nombre seleccionado
     let id = null;
 
     if (value !== "Choose One") {
@@ -117,7 +117,7 @@ export const NewStrategy = () => {
               name="name"
               value={newStrategyData.name}
               onChange={handleInputChange}
-              placeholder="Enter strategy name"
+              placeholder=""
             />
           </div>
           <div className="form-column">
@@ -127,7 +127,7 @@ export const NewStrategy = () => {
               name="description"
               value={newStrategyData.description}
               onChange={handleInputChange}
-              placeholder="Enter strategy description"
+              placeholder=""
             />
           </div>
         </div>
@@ -160,7 +160,7 @@ export const NewStrategy = () => {
               name="parameter_1_buy"
               value={newStrategyData.parameter_1_buy}
               onChange={handleInputChange}
-              placeholder="Enter parameter 1 buy"
+              placeholder=""
             />
           </div>
           <div className="form-column">
@@ -170,7 +170,7 @@ export const NewStrategy = () => {
               name="parameter_2_buy"
               value={newStrategyData.parameter_2_buy}
               onChange={handleInputChange}
-              placeholder="Enter parameter 2 buy"
+              placeholder=""
             />
           </div>
         </div>
@@ -204,7 +204,7 @@ export const NewStrategy = () => {
               name="parameter_1_sell"
               value={newStrategyData.parameter_1_sell}
               onChange={handleInputChange}
-              placeholder="Enter parameter 1 sell"
+              placeholder=""
             />
           </div>
           <div className="form-column">
@@ -214,7 +214,7 @@ export const NewStrategy = () => {
               name="parameter_2_sell"
               value={newStrategyData.parameter_2_sell}
               onChange={handleInputChange}
-              placeholder="Enter parameter 2 sell"
+              placeholder=""
             />
           </div>
         </div>

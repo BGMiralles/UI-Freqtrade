@@ -159,9 +159,9 @@ export const StrategyTable = () => {
 
   return (
     <div className="strategyDesign">
-      <table>
+      <table className="strategyTable">
         <thead>
-          <tr>
+          <tr className="strategyHeaders">
             {headers.map((header) => (
               <th key={header}>{header}</th>
             ))}
@@ -335,11 +335,11 @@ export const StrategyTable = () => {
               <td>
                 {isEditing && strategy.id === editingId ? (
                   <>
-                    <button onClick={() => handleSaveEdit(strategy.id)}>
+                    <button className="green" onClick={() => handleSaveEdit(strategy.id)}>
                       Save
                     </button>
-                    <button onClick={handleCancelEdit}>Cancel</button>
-                    <button onClick={() => handleDelete(strategy.id)}>
+                    <button className="yellow" onClick={handleCancelEdit}>Cancel</button>
+                    <button className="red" onClick={() => handleDelete(strategy.id)}>
                       Delete
                     </button>
                   </>
@@ -353,7 +353,7 @@ export const StrategyTable = () => {
           ))}
         </tbody>
       </table>
-      <LinkButton path="/newstrategy" title="New Strategy" />
+      <LinkButton className='linkDesign' path="/newstrategy" title="New Strategy" />
     </div>
   );
 };
