@@ -5,7 +5,7 @@
   width: 100vw;
   overflow-x: hidden;
   background-image: url("../../img/about.jpg");
-  background-size: cover;
+  background-size:auto;
   
 }
 
@@ -24,13 +24,12 @@
   width: 35em;
   overflow: hidden;
   filter: drop-shadow(0 1px 1px yellow);
-  margin-left: 2.5em;
 }
 
 .textAbout {
   color: white;
   font-size: 1.3em;
-  margin-left: 17.5em;
+  margin-left: 23.5em;
   font-family: "Agbalumo", cursive;
   width: 30em;
   overflow: hidden;

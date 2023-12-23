@@ -8,9 +8,6 @@
   flex-direction: column;
   align-items: center;
   font-family: "Abgalumo", cursive;
-  background-image: url("../../img/home-example.jpg");
-  object-fit: cover;
-  background-repeat: no-repeat;
   overflow: hidden;
 }
 
