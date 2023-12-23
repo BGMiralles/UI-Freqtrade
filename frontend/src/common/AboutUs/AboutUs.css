@@ -34,7 +34,7 @@
 }
 
 .colourText-green {
-    color: green
+    color: #b9de12
 }
 
 .buttonBookDiv {
@@ -60,7 +60,7 @@
 .appointmentAboutUs:hover {
     cursor: pointer;
     color: white;
-    background-color: green;
+    background-color: #b9de12;
     scale: 1.02;
     overflow: hidden;
 }

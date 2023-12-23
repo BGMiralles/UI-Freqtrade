@@ -16,7 +16,7 @@
 }
 
 .blueColour {
-  color: green;
+  color: #b9de12;
 }
 
 .text-navbar {
@@ -30,7 +30,7 @@
 
 .items-navbar:hover {
   cursor: pointer;
-  color: green;
+  color: #b9de12;
 }
 
 .items-navbar-logout:hover {
