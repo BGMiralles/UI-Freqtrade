@@ -3,8 +3,8 @@ import { UsersTable } from '../../common/SuperUsers/SuperUsers';
 
 export const ViewSuperUsers = () => {
     return (
-        <div>
+        
             <UsersTable />
-        </div>
+        
     );
 };

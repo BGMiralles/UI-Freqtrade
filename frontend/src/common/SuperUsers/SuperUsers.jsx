@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './SuperUsers.css';
 import { allUsers, updateUserRole } from '../../services/apiCalls';
 import { useSelector } from 'react-redux';
 import { userData } from '../../pages/userSlice';
@@ -60,9 +61,9 @@ export const UsersTable = () => {
   };
 
   return (
-    <div>
-      <h1>Users Table</h1>
-      <table>
+    <div className='usersDesign'>
+      <h1 className='usersHeader'>Users Table</h1>
+      <table className='usersTable'>
         <thead>
           <tr>
             <th>ID</th>
