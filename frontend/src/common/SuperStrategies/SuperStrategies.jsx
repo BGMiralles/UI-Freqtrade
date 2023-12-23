@@ -1,4 +1,3 @@
-// SuperStrategies.jsx
 import React from "react";
 import "./SuperStrategies.css";
 
@@ -56,22 +55,25 @@ export const SuperStrategies = ({
   };
     
   return (
-    <table>
-      <thead>
-        <tr>
-          {headers.map((header) => (
-            <th key={header}>{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row) => (
-          <tr key={row.id}>
+    <div className="stratDesign">
+      <h1 className="stratHeader">Strategies</h1>
+      <table className="stratTable">
+        <thead>
+          <tr>
             {headers.map((header) => (
-              <td key={header}>{getCellValue(header, row[header])}</td>
+              <th className="borderTable" key={header}>{header}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.map((row) => (
+            <tr key={row.id}>
+              {headers.map((header) => (
+                <td className="borderTable" key={header}>{getCellValue(header, row[header])}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )};

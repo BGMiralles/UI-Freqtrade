@@ -1,0 +1,33 @@
+.strategyDesign {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-y:   hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin-top: 5em;
+  }
+  
+  .technTable {
+    border-collapse: collapse;
+    width: 10 em;
+    color: white;
+    font-family: monospace;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2em;
+    background-color: black;
+  }
+  
+  .technHeader{
+      background-color: black;
+      color: white;
+      text-align: center;
+  }
+
+  .technIn{
+    font-size: 1em;
+  }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import './TimeFrameTable.css'
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
 import { allTimeFrames, deleteTimeFrame, createTimeFrame } from "../../services/apiCalls";
@@ -44,9 +45,9 @@ export const TimeFramesTable = () => {
   };
 
   return (
-    <div>
-      <h2>Time Frames Table</h2>
-      <table>
+    <div className="timesDesign">
+      <h2 className="timesHeader">Time Frames Table</h2>
+      <table className="timesTable">
         <thead>
           <tr>
             <th>ID</th>

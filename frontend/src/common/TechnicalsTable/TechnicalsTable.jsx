@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './TechnicalsTable.css'
 import { useSelector } from 'react-redux';
 import { userData } from '../../pages/userSlice';
 import { allTechnicals } from '../../services/apiCalls';
@@ -21,9 +22,9 @@ export const UserTechnicalsTable = () => {
   }, [datosRdxUser.credentials]);
 
   return (
-    <div>
-      <h1>Technicals Table</h1>
-      <table>
+    <div className='technDesign'>
+      <h1 className='technHeader'>Technicals Table</h1>
+      <table className='technTable'>
         <thead>
           <tr>
             <th>Name</th>
@@ -32,9 +33,9 @@ export const UserTechnicalsTable = () => {
         </thead>
         <tbody>
           {technicalsData.map((technical) => (
-            <tr key={technical.id}>
-              <td>{technical.name}</td>
-              <td>{technical.description}</td>
+            <tr key={technical.id} className='border'>
+              <td className='border'>{technical.name}</td>
+              <td className='border'>{technical.description}</td>
             </tr>
           ))}
         </tbody>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './SuperTechnicals.css'
 import { useSelector } from 'react-redux';
 import { userData } from '../../pages/userSlice';
 import { allTechnicals, createTechnical, deleteTechnical, updateTechnical } from '../../services/apiCalls';
@@ -74,9 +75,9 @@ export const TechnicalsTable = () => {
   };
 
   return (
-    <div>
-      <h1>Tabla de Datos</h1>
-      <table>
+    <div className='technDesign'>
+      <h1 className='technHeader'>Technicals Resources</h1>
+      <table className='technTable'>
         <thead>
           <tr>
             <th>Name</th>
@@ -124,23 +125,23 @@ export const TechnicalsTable = () => {
           ))}
           <tr>
             <td>
-              <input
+              <input className='technIn'
                 type="text"
-                placeholder="Name"
+                placeholder=""
                 value={newTechnical.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
               />
             </td>
             <td>
-              <input
+              <input className='technIn'
                 type="text"
-                placeholder="Description"
+                placeholder=""
                 value={newTechnical.description}
                 onChange={(e) => handleInputChange('description', e.target.value)}
               />
             </td>
             <td>
-              <button onClick={handleCreateNew}>Crear Nuevo Indicador</button>
+              <button onClick={handleCreateNew}>Create New Technical</button>
             </td>
           </tr>
         </tbody>

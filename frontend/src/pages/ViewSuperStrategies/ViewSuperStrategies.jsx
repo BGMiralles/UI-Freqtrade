@@ -60,7 +60,6 @@ export const ViewSuperStrategy = () => {
 
   return (
     <div>
-      <h1>Strategies</h1>
       <SuperStrategies
         data={strategies}
         allTechnicalsData={allTechnicalsData}

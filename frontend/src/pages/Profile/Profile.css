@@ -9,14 +9,14 @@
   justify-content: center;
   align-items: center;
   margin-top: 3em;
-  background-image: url(../../img/register.jpg);
+  background-image: url(../../img/profile.jpg);
   background-size: cover;
 }
 
 .header {
   font-family: "Agbalumo", cursive;
   font-size: 2.5em;
-  color: gold;
+  color: #b9de12;
 }
 
 .inputDesign {
@@ -46,7 +46,7 @@
 
 body {
     --sb-track-color: #000;
-    --sb-thumb-color: #ffd700;
+    --sb-thumb-color: #b9de12;
     --sb-size: 10px;
   
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
@@ -75,7 +75,7 @@ body {
   width: 8em;
   font-size: 1.5em;
   border-radius: 1em;
-  background-color: #5086c1;
+  background-color: #b9de12;
   color: white;
   font-weight: bolder;
   display: flex;
@@ -88,6 +88,6 @@ body {
 .sendDesign:hover,
 .editDesign:hover {
   transition: 0.4s;
-  background-color: #f47e8e;
+  background-color: green;
   cursor: pointer;
 }

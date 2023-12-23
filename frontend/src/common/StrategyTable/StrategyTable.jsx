@@ -158,7 +158,7 @@ export const StrategyTable = () => {
   };
 
   return (
-    <div className="strategyTable">
+    <div className="strategyDesign">
       <table>
         <thead>
           <tr>
