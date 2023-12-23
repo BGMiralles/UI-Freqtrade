@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  freqtrade:
+    image: freqtradeorg/freqtrade:stable
+    container_name: freqtrade_container
+    volumes:
+      - ./ft_userdata:/freqtrade/user_data
+    environment:
+      FREQTRADE_CONFIG_PATH: /freqtrade/user_data/config.json
+      FREQTRADE_USER_DATA_PATH: /freqtrade/user_data

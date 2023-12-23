@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap");
+
+.profileDesign {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  background-image: url(../../img/profile.jpg);
+  background-size: cover;
+}
+
+.header {
+  font-family: "Agbalumo", cursive;
+  font-size: 2.5em;
+  color: #b9de12;
+}
+
+.inputDesign {
+  color: white;
+}
+
+.inputDesignError {
+  border-color: red;
+}
+
+.errorMsg {
+  color: red;
+  border-radius: 0.5em;
+  border: 2px solid red;
+  padding: 2px;
+  background-color: white;
+  opacity: 70%;
+}
+
+.errorMsgVoid {
+  display: none;
+}
+
+.errorMsgVoid.errorMsg {
+  display: flex;
+}
+
+body {
+    --sb-track-color: #000;
+    --sb-thumb-color: #b9de12;
+    --sb-size: 10px;
+  
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    overflow-x: hidden;
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+  }
+  
+
+.buttonSubmit,
+.sendDesign,
+.editDesign {
+  height: 3em;
+  width: 8em;
+  font-size: 1.5em;
+  border-radius: 1em;
+  background-color: #b9de12;
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.buttonSubmit:hover,
+.sendDesign:hover,
+.editDesign:hover {
+  transition: 0.4s;
+  background-color: green;
+  cursor: pointer;
+}

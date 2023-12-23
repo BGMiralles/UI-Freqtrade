@@ -1,0 +1,32 @@
+.stratDesign {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-y:   hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin-top: 2em;
+  }
+  
+  .stratTable {
+    width: 30em;
+    color: white;
+    font-family: monospace;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2em;
+    background-color: black;
+  }
+  
+  .stratHeader{
+      background-color: black;
+      color: white;
+      text-align: center;
+  }
+
+  .borderTable{
+    border: 1px solid white;
+  }

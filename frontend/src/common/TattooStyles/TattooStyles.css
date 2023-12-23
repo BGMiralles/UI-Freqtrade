@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto+Slab:wght@500&display=swap");
+
+.tattooStyles {
+  width: 100vw;
+  height: 40em;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Abgalumo", cursive;
+  overflow: hidden;
+}
+
+.tattooInfo {
+  color: gold;
+  font-size: 5em;
+  margin-top: 1em;
+  overflow: hidden;
+}
+
+.stylesInfo {
+  color: white;
+  font-size: 20px;
+  width: 50%;
+  overflow: hidden;
+}
+
+.stylesBanner {
+  filter: saturate(1.5);
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10em;
+}
+
+.image-wrapper {
+  flex-direction: row;
+  width: 25%;
+  cursor: pointer;
+}
+
+.ajust{
+  width: 70%;
+}
+
+.image-tattoo {
+  max-width: 100%;
+  height: auto;
+  border: solid 2px gold;
+  transition: 0.4s;
+  transform-style: preserve-3d;
+}
+
+.tattooStyles
+  .background-banner
+  .image-container
+  .image-wrapper.flipped
+  .image-tattoo {
+  transform: rotateY(180deg) rotateX(180deg);
+}
