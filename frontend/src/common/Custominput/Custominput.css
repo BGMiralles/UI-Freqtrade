@@ -9,7 +9,7 @@
   color: white;
 
   border-radius: 0.5em;
-  border: 5px solid gold;
+  border: 5px solid #b9de12;
 
   margin-bottom: 1.5em;
   background-color: transparent;
@@ -42,5 +42,5 @@ input::placeholder {
 }
 
 .inputDesignError {
-  border: 0.2em solid gold;
+  border: 0.2em solid #b9de12;
 }

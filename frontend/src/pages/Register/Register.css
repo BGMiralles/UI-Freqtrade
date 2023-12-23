@@ -11,7 +11,7 @@
   align-items: center;
   margin-top: 3em;
 
-  background-image: url(../../img/register.jpg);
+  background-image: url(../../img/login.jpg);
   background-size: cover;
   
 }
@@ -19,7 +19,7 @@
 .header {
   font-family: "Agbalumo", cursive;
   font-size: 2.5em;
-  color: gold;
+  color: #b9de12;
 }
 
 .errorMsg {
@@ -45,7 +45,7 @@
   font-size: 1.5em;
 
   border-radius: 1em;
-  background-color: greenyellow;
+  background-color: #b9de12;
   color: black;
   font-weight: bolder;
 
@@ -127,7 +127,7 @@
 
 .buttonSubmit-green:hover {
   transition: 0.4s;
-  background-color: green;
+  background-color: #b9de12;
   cursor: pointer;
   -webkit-animation: buttonSubmit 1.5s ease-in-out infinite both;
   animation: buttonSubmit 1.5s ease-in-out infinite both;
