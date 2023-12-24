@@ -1,0 +1,1077 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "UI-Freqtrade",
+    "dateExported": "2023-12-24T13:38:41.459Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "4b20ead2-7377-497b-9bff-4c137c91d794",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-12-15T18:36:59.294Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "Role",
+            "containerId": "",
+            "created": "2023-12-15T19:31:23.257Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "a63ca584-333a-4bfa-9d75-6adb0a3a5315",
+            "name": "Time Frame",
+            "containerId": "",
+            "created": "2023-12-16T11:02:20.816Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "c253c41b-dfe2-484d-92c2-4ea39715da5d",
+            "name": "Technical Resource",
+            "containerId": "",
+            "created": "2023-12-16T11:11:58.595Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Buy Signal",
+            "containerId": "",
+            "created": "2023-12-16T11:37:41.543Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "38d8fa88-c121-4258-af12-df7085a4ae16",
+            "name": "Buy Technical",
+            "containerId": "",
+            "created": "2023-12-16T17:01:48.570Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Strategy",
+            "containerId": "",
+            "created": "2023-12-16T17:20:17.233Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Sell Signal",
+            "containerId": "",
+            "created": "2023-12-18T12:36:17.324Z",
+            "sortNum": 90000
+        },
+        {
+            "_id": "cb2286c2-85ab-4e6e-b6c2-ff3d3f4b76ce",
+            "name": "Sell Technical",
+            "containerId": "",
+            "created": "2023-12-18T15:55:33.007Z",
+            "sortNum": 100000
+        },
+        {
+            "_id": "f92b57d8-1485-466c-ba58-a0f221217b47",
+            "name": "Trade",
+            "containerId": "",
+            "created": "2023-12-18T16:12:25.508Z",
+            "sortNum": 110000
+        },
+        {
+            "_id": "1579be09-3468-4ff5-b067-37598153188a",
+            "name": "Super Admin",
+            "containerId": "",
+            "created": "2023-12-21T17:35:26.939Z",
+            "sortNum": 120000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "b074c6c9-9ff8-4212-9e78-fb2d24360175",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "4b20ead2-7377-497b-9bff-4c137c91d794",
+            "name": "register",
+            "url": "localhost:3000/user/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-12-15T18:37:07.676Z",
+            "modified": "2023-12-16T18:05:12.436Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"borja\",\n  \"nickname\": \"BGM\",\n  \"email\": \"borja@borja.com\",\n  \"password\": \"borjA123$\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "748ba50d-8301-4d8c-b0b2-4db4fa6fbb9f",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "4b20ead2-7377-497b-9bff-4c137c91d794",
+            "name": "login",
+            "url": "localhost:3000/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-15T18:57:10.615Z",
+            "modified": "2023-12-19T15:07:39.563Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"pedro@example.com\",\n  \"password\": \"Pedro123$\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4331a36e-0a21-4c31-b106-cf7c9fc16922",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "4b20ead2-7377-497b-9bff-4c137c91d794",
+            "name": "profile",
+            "url": "localhost:3000/user/profile",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-12-15T18:59:03.413Z",
+            "modified": "2023-12-15T20:22:56.518Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "68d79ed9-3b54-4d1a-973d-c9ed7e95c527",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "4b20ead2-7377-497b-9bff-4c137c91d794",
+            "name": "update",
+            "url": "localhost:3000/user/update",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-12-15T19:19:15.673Z",
+            "modified": "2023-12-15T19:25:26.562Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"borja@borja.com\",\n  \"nickname\": \"BGM\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NjY3MDcsImV4cCI6MTcwMjY5NTUwN30.gq5KnoGIPp3wxc4DBw9nqSBIq2kQm3PE_NpWx1KsISM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8605745d-9754-4320-b923-71a9c5380200",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "All Roles",
+            "url": "localhost:3000/role/allRoles",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-12-15T19:31:58.334Z",
+            "modified": "2023-12-15T20:23:06.248Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e7e01f10-ac16-4f78-9381-786030cb749c",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "Get Role By Id",
+            "url": "localhost:3000/role/getRoleById",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-12-15T20:30:33.185Z",
+            "modified": "2023-12-15T20:41:01.951Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "26cd101c-cc4b-4d7c-8eda-7452b1fc7c5d",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "Create Role",
+            "url": "localhost:3000/role/createRole",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-12-15T20:41:25.897Z",
+            "modified": "2023-12-15T20:42:28.968Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role\": \"admin\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4a006123-14bd-4781-af33-413a6fcd084e",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "Update Role",
+            "url": "localhost:3000/role/updateRole",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-12-15T20:42:57.314Z",
+            "modified": "2023-12-15T20:46:55.831Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3,\n  \"role\": \"user\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "bf7d7c6c-cd88-4c7e-b803-963681470ba6",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "bab425a4-a596-4dc7-af08-6e69a8edd098",
+            "name": "Delete Role",
+            "url": "localhost:3000/role/deleteRole",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-12-15T20:47:31.160Z",
+            "modified": "2023-12-15T20:48:08.691Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI2NzE3MTYsImV4cCI6MTcwMjcwMDUxNn0.d7nbtMpBn1ZnTzC80UfA0OioHOwGrkkK1wY5R5Pp2Hk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0e8a450d-bea5-45d3-8265-29f67ebb9a91",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "a63ca584-333a-4bfa-9d75-6adb0a3a5315",
+            "name": "Get All Time Frames",
+            "url": "localhost:3000/timeframe/getAllTimeFrames",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-12-16T11:02:37.449Z",
+            "modified": "2023-12-21T18:13:42.694Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMxNzc3MjksImV4cCI6MTcwMzIwNjUyOX0.Xie2Wjs_N8Vd_Z16ppULJpnMBPzr1TCWpeCDRhzURXU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "08db25b3-b6fa-41db-8c1b-a0de4562c208",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "a63ca584-333a-4bfa-9d75-6adb0a3a5315",
+            "name": "Create Time Frame",
+            "url": "localhost:3000/timeframe/createTimeFrame",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-12-16T11:04:39.172Z",
+            "modified": "2023-12-16T11:06:40.512Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"time_frame\": \"1h\" \n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI3MjQ2MzEsImV4cCI6MTcwMjc1MzQzMX0.7ty3qbFh8drEvb9kTKOGxghE9Fs7PWY4a_pNvWL7fnM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ef1bf794-6163-49cd-818f-b7d80dc6d973",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "a63ca584-333a-4bfa-9d75-6adb0a3a5315",
+            "name": "Delete Time Frame",
+            "url": "localhost:3000/timeframe/deleteTimeFrame",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2023-12-16T11:07:17.959Z",
+            "modified": "2023-12-21T19:20:22.035Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 13\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMxNzc3MjksImV4cCI6MTcwMzIwNjUyOX0.Xie2Wjs_N8Vd_Z16ppULJpnMBPzr1TCWpeCDRhzURXU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a2db7624-7c20-4038-9495-bc919f366d39",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "c253c41b-dfe2-484d-92c2-4ea39715da5d",
+            "name": "Create Technical Resource",
+            "url": "localhost:3000/technicalresource/createTechnicalResource",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2023-12-16T11:12:13.937Z",
+            "modified": "2023-12-16T11:14:16.929Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"name\": \"BB\",\n \"description\": \"asdafasd\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI3MjQ2MzEsImV4cCI6MTcwMjc1MzQzMX0.7ty3qbFh8drEvb9kTKOGxghE9Fs7PWY4a_pNvWL7fnM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "78cf7c0d-4f8e-437c-b195-3763b6507485",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "c253c41b-dfe2-484d-92c2-4ea39715da5d",
+            "name": "Get All Technical Resources",
+            "url": "localhost:3000/technicalresource/getAllTechnicalResources",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-12-16T11:14:50.955Z",
+            "modified": "2023-12-22T11:42:33.886Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMyNDUzMzksImV4cCI6MTcwMzI3NDEzOX0.J9DI-TJt7REf6xf3pQrAFNmfjxkNhHjFnnjBmQy6dGs"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fb2c1e75-5bef-4f66-8221-ce9e457f9a64",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "c253c41b-dfe2-484d-92c2-4ea39715da5d",
+            "name": "Update Technical Resource",
+            "url": "localhost:3000/technicalresource/updateTechnicalResource",
+            "method": "PUT",
+            "sortNum": 150000,
+            "created": "2023-12-16T11:21:03.675Z",
+            "modified": "2023-12-16T11:22:32.858Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"name\": \"MM\",\n  \"description\": \"asco\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI3MjQ2MzEsImV4cCI6MTcwMjc1MzQzMX0.7ty3qbFh8drEvb9kTKOGxghE9Fs7PWY4a_pNvWL7fnM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4bae21df-ba3e-48c7-a48f-451ef41d7712",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "c253c41b-dfe2-484d-92c2-4ea39715da5d",
+            "name": "Delete Technical Resource",
+            "url": "localhost:3000/technicalresource/deleteTechnicalResource",
+            "method": "DELETE",
+            "sortNum": 160000,
+            "created": "2023-12-16T11:23:02.082Z",
+            "modified": "2023-12-16T11:23:32.047Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI3MjQ2MzEsImV4cCI6MTcwMjc1MzQzMX0.7ty3qbFh8drEvb9kTKOGxghE9Fs7PWY4a_pNvWL7fnM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fa115c58-29f4-4f2e-8c27-b5082496fde5",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Create Buy Signal",
+            "url": "localhost:3000/buysignal/createBuySignal",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2023-12-16T11:37:57.482Z",
+            "modified": "2023-12-18T11:21:45.383Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"parameter_1\": 10,\n \"parameter_2\": 55,\n \"buy_technical_id\": 1,\n \"strategy_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI4OTgyMjIsImV4cCI6MTcwMjkyNzAyMn0.XzSl8D86lxkSD4Ds3PX4TfjPlL0HSh3C38WzFL2-sXg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8608dafb-7f21-4d67-8bb2-f08c51923829",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "38d8fa88-c121-4258-af12-df7085a4ae16",
+            "name": "Create Buy Technical",
+            "url": "localhost:3000/buytechnical/createBuyTechnical",
+            "method": "POST",
+            "sortNum": 190000,
+            "created": "2023-12-16T17:02:01.038Z",
+            "modified": "2023-12-18T13:33:51.044Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"buy_signal_id\": 1,\n \"technical_resources_id\": 2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7266130a-ee83-4432-b6d8-bb4ee582ec0b",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Create Strategy",
+            "url": "localhost:3000/strategy/createStrategy",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2023-12-16T17:20:30.100Z",
+            "modified": "2023-12-20T19:03:58.844Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"parameter_1_buy\": 22,\n  \"parameter_2_buy\":2,\n  \"parameter_1_sell\":77,\n  \"parameter_2_sell\":7,\n  \"time_frame_id\":3,\n  \"buy_technical_resources_id\": 4,\n  \"sell_technical_resources_id\": 5,\n  \"name\": \"3\",\n  \"description\": \"PRUEBA\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjEsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG8iLCJpYXQiOjE3MDMwOTkwMDIsImV4cCI6MTcwMzEyNzgwMn0.p7S9ZKut5M6Ecfst_aBbl_j2Rq-fYRKnpVj0dNkVtsk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "416d20e7-0cb3-4a68-a05e-d0dde89055f5",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "All Strategies",
+            "url": "localhost:3000/strategy/allStrategies",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2023-12-16T19:13:58.171Z",
+            "modified": "2023-12-21T16:55:44.239Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMxNzc3MjksImV4cCI6MTcwMzIwNjUyOX0.Xie2Wjs_N8Vd_Z16ppULJpnMBPzr1TCWpeCDRhzURXU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "541ef476-8a1b-45f6-9db1-745803715198",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Get Strategy By Id",
+            "url": "localhost:3000/strategy/getStrategyById",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2023-12-16T19:51:48.101Z",
+            "modified": "2023-12-16T20:01:01.235Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI3NTQxMDYsImV4cCI6MTcwMjc4MjkwNn0.c9PzbI6IFFXL-VcIyv_lETH40Xp1_u2VI14wVa3td7Y"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a5537760-78f5-481d-8394-5cce8a6110ad",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Update Strategy",
+            "url": "localhost:3000/strategy/updateStrategy",
+            "method": "PUT",
+            "sortNum": 240000,
+            "created": "2023-12-16T19:54:22.856Z",
+            "modified": "2023-12-20T17:10:30.975Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"parameter_1_buy\": 999,\n    \"parameter_2_buy\": 777,\n    \"parameter_1_sell\": 777,\n    \"parameter_2_sell\": 999,\n    \"time_frame_id\": 1,\n    \"name\": \"cambio\",\n    \"description\": \"perro, perroooo, perrooooooooo\",\n    \"buy_technical_resources_id\": 1,\n    \"sell_technical_resources_id\": 6,\n    \"id\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjEsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm9vIiwibmlja25hbWUiOiJQUFAiLCJpYXQiOjE3MDMwODY2ODMsImV4cCI6MTcwMzExNTQ4M30._JxlM6382vqJOxPcWQs5b5vRQeWQzk4KTz9rlxAUCSM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aa838103-fd55-465f-a3e7-249416fe034a",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Delete Strategy",
+            "url": "localhost:3000/strategy/deleteStrategy",
+            "method": "DELETE",
+            "sortNum": 250000,
+            "created": "2023-12-16T19:59:40.799Z",
+            "modified": "2023-12-20T19:00:39.864Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 6\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjEsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm9vIiwibmlja25hbWUiOiJQUFAiLCJpYXQiOjE3MDMwODY2ODMsImV4cCI6MTcwMzExNTQ4M30._JxlM6382vqJOxPcWQs5b5vRQeWQzk4KTz9rlxAUCSM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8f59ecd8-d166-4c16-96e9-628ad51ebc43",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Get All Buy Signals",
+            "url": "localhost:3000/buysignal/allBuySignals",
+            "method": "GET",
+            "sortNum": 260000,
+            "created": "2023-12-18T11:23:32.586Z",
+            "modified": "2023-12-18T11:23:53.144Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI4OTgyMjIsImV4cCI6MTcwMjkyNzAyMn0.XzSl8D86lxkSD4Ds3PX4TfjPlL0HSh3C38WzFL2-sXg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "acab2489-178d-458e-b5ee-5710c5e6f680",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Update Buy Signal",
+            "url": "localhost:3000/buysignal/updateBuySignal",
+            "method": "PUT",
+            "sortNum": 270000,
+            "created": "2023-12-18T11:26:07.811Z",
+            "modified": "2023-12-18T11:27:30.516Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"parameter_1\": 100,\n  \"parameter_2\": 100,\n  \"id\": 10\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI4OTgyMjIsImV4cCI6MTcwMjkyNzAyMn0.XzSl8D86lxkSD4Ds3PX4TfjPlL0HSh3C38WzFL2-sXg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "bfd51d13-147a-4e9b-ac2d-1bb2c802bab6",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Get Buy Signal By Id",
+            "url": "localhost:3000/buysignal/getBuySignalById",
+            "method": "GET",
+            "sortNum": 280000,
+            "created": "2023-12-18T11:27:58.678Z",
+            "modified": "2023-12-18T11:28:50.325Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI4OTgyMjIsImV4cCI6MTcwMjkyNzAyMn0.XzSl8D86lxkSD4Ds3PX4TfjPlL0HSh3C38WzFL2-sXg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "522b3c04-b347-433d-a683-85d87b270709",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "e81e8928-77de-4245-b756-16717d7910bb",
+            "name": "Delete Buy Signal",
+            "url": "localhost:3000/buysignal/deleteBuySignal",
+            "method": "DELETE",
+            "sortNum": 290000,
+            "created": "2023-12-18T11:30:52.693Z",
+            "modified": "2023-12-18T12:12:45.922Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDE1NTUsImV4cCI6MTcwMjkzMDM1NX0.dtomzFik-usNrodk5G3aSpntLsGbRFJ6RKutC_8wB1A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e9c2535e-2397-4c2e-a50d-0f9c4003be77",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Get All Sell Signals",
+            "url": "localhost:3000/sellsignal/allSellSignals",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2023-12-18T12:36:31.840Z",
+            "modified": "2023-12-18T12:37:19.407Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDE1NTUsImV4cCI6MTcwMjkzMDM1NX0.dtomzFik-usNrodk5G3aSpntLsGbRFJ6RKutC_8wB1A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f2fd94fc-4471-4e3d-86b8-d337b6976a86",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Get Sell Signal By Id",
+            "url": "localhost:3000/sellsignal/getSellSignalById",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2023-12-18T12:37:44.796Z",
+            "modified": "2023-12-18T12:38:27.421Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDE1NTUsImV4cCI6MTcwMjkzMDM1NX0.dtomzFik-usNrodk5G3aSpntLsGbRFJ6RKutC_8wB1A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "be729de1-95f3-4d25-a250-696d05efaad0",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Update Sell Signal",
+            "url": "localhost:3000/sellsignal/updateSellSignal",
+            "method": "PUT",
+            "sortNum": 320000,
+            "created": "2023-12-18T12:39:52.654Z",
+            "modified": "2023-12-18T12:40:59.782Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"parameter_1\": 100,\n  \"parameter_2\": 100\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDE1NTUsImV4cCI6MTcwMjkzMDM1NX0.dtomzFik-usNrodk5G3aSpntLsGbRFJ6RKutC_8wB1A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cad60f2b-e775-4dee-b8cf-264dd2bffca8",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Create Sell SIgnal",
+            "url": "localhost:3000/sellsignal/createSellSignal",
+            "method": "POST",
+            "sortNum": 330000,
+            "created": "2023-12-18T12:42:03.798Z",
+            "modified": "2023-12-18T12:48:19.676Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"parameter_1\": 200,\n  \"parameter_2\": 200,\n  \"sell_technical_id\": 2,\n  \"strategy_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "466323de-1806-4f0a-8c10-2c53b9fbd2e4",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "3c78db72-07ce-4894-90b3-15f3c1304d54",
+            "name": "Delete Sell Signal",
+            "url": "localhost:3000/sellsignal/deleteSellSignal",
+            "method": "DELETE",
+            "sortNum": 340000,
+            "created": "2023-12-18T12:44:02.427Z",
+            "modified": "2023-12-18T13:14:38.488Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 10\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ec8bcf95-1b3a-411e-a14c-2279e4397731",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "38d8fa88-c121-4258-af12-df7085a4ae16",
+            "name": "Get All Buy Technicals",
+            "url": "localhost:3000/buytechnical/allBuyTechnicals",
+            "method": "GET",
+            "sortNum": 350000,
+            "created": "2023-12-18T13:21:00.468Z",
+            "modified": "2023-12-18T13:22:07.239Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3cc93f7c-d3c6-410f-a074-3a796264052e",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "38d8fa88-c121-4258-af12-df7085a4ae16",
+            "name": "Get Buy Technical By Id",
+            "url": "localhost:3000/buytechnical/getBuyTechnicalById",
+            "method": "GET",
+            "sortNum": 360000,
+            "created": "2023-12-18T13:22:29.633Z",
+            "modified": "2023-12-18T13:33:10.850Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "671815d2-03d8-412b-98e5-bd8d01015395",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "38d8fa88-c121-4258-af12-df7085a4ae16",
+            "name": "Delete Buy Technical",
+            "url": "localhost:3000/buytechnical/deleteBuyTechnical",
+            "method": "DELETE",
+            "sortNum": 370000,
+            "created": "2023-12-18T13:34:10.795Z",
+            "modified": "2023-12-18T13:34:47.581Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MDM2NzcsImV4cCI6MTcwMjkzMjQ3N30.B8eGdkVhhTNb5yICAlFXnEGeIM90FBXUJHx3uhG24tU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ee7abb9-e8f7-48a4-9d6d-8263a78fcafc",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "cb2286c2-85ab-4e6e-b6c2-ff3d3f4b76ce",
+            "name": "Get All Sell Techicals",
+            "url": "localhost:3000/selltechnical/allSellTechnicals",
+            "method": "GET",
+            "sortNum": 390000,
+            "created": "2023-12-18T16:00:10.166Z",
+            "modified": "2023-12-18T16:00:58.091Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "11369d7a-b3c7-4fa9-b5a6-578552e5943b",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "cb2286c2-85ab-4e6e-b6c2-ff3d3f4b76ce",
+            "name": "Get Sell Techincal by Id",
+            "url": "localhost:3000/selltechnical/getSellTechnicalById",
+            "method": "GET",
+            "sortNum": 400000,
+            "created": "2023-12-18T16:05:04.515Z",
+            "modified": "2023-12-18T16:05:56.353Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 4\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "20fbac33-9374-41e9-aa05-17066d865ff2",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "cb2286c2-85ab-4e6e-b6c2-ff3d3f4b76ce",
+            "name": "Create Sell Technical",
+            "url": "localhost:3000/selltechnical/createSellTechnical",
+            "method": "POST",
+            "sortNum": 410000,
+            "created": "2023-12-18T16:06:23.999Z",
+            "modified": "2023-12-18T16:07:26.207Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"sell_signal_id\": 3,\n  \"technical_resources_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ea8d4d7e-9db8-4f49-8a28-fd53acfd3744",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "cb2286c2-85ab-4e6e-b6c2-ff3d3f4b76ce",
+            "name": "Delete Sell Technical",
+            "url": "localhost:3000/selltechnical/deleteSellTechnical",
+            "method": "DELETE",
+            "sortNum": 420000,
+            "created": "2023-12-18T16:08:57.560Z",
+            "modified": "2023-12-18T16:09:22.786Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 5\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f012aaab-249b-4bf1-b86e-e8ae69b7c427",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "f92b57d8-1485-466c-ba58-a0f221217b47",
+            "name": "Create Trade",
+            "url": "localhost:3000/trade/createTrade",
+            "method": "POST",
+            "sortNum": 430000,
+            "created": "2023-12-18T16:12:34.335Z",
+            "modified": "2023-12-18T16:15:24.233Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"PNL\": 100,\n  \"entry_price\": 25000,\n  \"amount\": 1000,\n  \"strategy_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "25440f47-3eed-487f-ad70-9fdd05d25858",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "f92b57d8-1485-466c-ba58-a0f221217b47",
+            "name": "Get Trade by Id",
+            "url": "localhost:3000/trade/getTradeById",
+            "method": "GET",
+            "sortNum": 440000,
+            "created": "2023-12-18T16:17:02.439Z",
+            "modified": "2023-12-18T16:17:59.412Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "81acdd33-0b00-42d0-a5f4-46e652e7b567",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "f92b57d8-1485-466c-ba58-a0f221217b47",
+            "name": "Get All Trades",
+            "url": "localhost:3000/trade/getalltrades",
+            "method": "GET",
+            "sortNum": 450000,
+            "created": "2023-12-18T16:32:10.021Z",
+            "modified": "2023-12-18T16:32:25.037Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fc498977-48d6-4be4-8a58-913cbc72bff0",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "f92b57d8-1485-466c-ba58-a0f221217b47",
+            "name": "Delete Trade",
+            "url": "localhost:3000/trade/deleteTrade",
+            "method": "DELETE",
+            "sortNum": 460000,
+            "created": "2023-12-18T16:33:03.118Z",
+            "modified": "2023-12-18T16:34:43.005Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MiwiZW1haWwiOiJib3JqYUBib3JqYS5jb20iLCJpYXQiOjE3MDI5MTUyMzksImV4cCI6MTcwMjk0NDAzOX0.-ciLxF2NKNCFriGDDmzvWBsbQdEGr3EC6cOuPOs0z7M"
+            },
+            "tests": []
+        },
+        {
+            "_id": "af16b533-61f3-41ba-aa39-a63e1c7f3dff",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "6c292165-83b2-49ac-846f-6014de58a330",
+            "name": "Get My Strategies",
+            "url": "localhost:3000/strategy/getMyStrategies",
+            "method": "GET",
+            "sortNum": 470000,
+            "created": "2023-12-19T15:07:59.140Z",
+            "modified": "2023-12-20T15:38:18.621Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjEsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm9vIiwibmlja25hbWUiOiJQUFAiLCJpYXQiOjE3MDMwODY2ODMsImV4cCI6MTcwMzExNTQ4M30._JxlM6382vqJOxPcWQs5b5vRQeWQzk4KTz9rlxAUCSM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cd465f67-e382-4212-a020-ebbb05d94daf",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "1579be09-3468-4ff5-b067-37598153188a",
+            "name": "Get All Users",
+            "url": "localhost:3000/superadmin/all",
+            "method": "GET",
+            "sortNum": 490000,
+            "created": "2023-12-21T17:35:44.661Z",
+            "modified": "2023-12-21T17:37:53.409Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMxNzc3MjksImV4cCI6MTcwMzIwNjUyOX0.Xie2Wjs_N8Vd_Z16ppULJpnMBPzr1TCWpeCDRhzURXU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e4d59da0-bbae-4f0a-be31-360dedee8942",
+            "colId": "a0540988-ac6a-4562-af3f-11d2f9101728",
+            "containerId": "1579be09-3468-4ff5-b067-37598153188a",
+            "name": "Update User Role",
+            "url": "localhost:3000/superadmin/update",
+            "method": "PUT",
+            "sortNum": 500000,
+            "created": "2023-12-22T13:24:50.123Z",
+            "modified": "2023-12-22T13:26:04.986Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"role_id\": 2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsInJvbGUiOjIsImVtYWlsIjoicGVkcm9AZXhhbXBsZS5jb20iLCJuYW1lIjoicGVkcm8iLCJuaWNrbmFtZSI6InBlZHJpdG9vb28iLCJpYXQiOjE3MDMyNDUzMzksImV4cCI6MTcwMzI3NDEzOX0.J9DI-TJt7REf6xf3pQrAFNmfjxkNhHjFnnjBmQy6dGs"
+            },
+            "tests": []
+        }
+    ]
+}
