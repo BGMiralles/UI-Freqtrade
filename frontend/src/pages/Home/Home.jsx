@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import { Banner } from "../../common/BannerHome/BannerHome";
 import { AboutUs } from "../../common/AboutUs/AboutUs";
-import { TattooStyles } from "../../common/TattooStyles/TattooStyles";
+import { FlipCards } from "../../common/FlipsCards/FlipsCards";
 import { Information } from "../../common/Information/Information";
 
 export const Home = () => {
@@ -10,7 +10,7 @@ export const Home = () => {
     <div>
       <Banner />
       <AboutUs />
-      <TattooStyles />
+      <FlipCards />
       <Information />
     </div>
   );
