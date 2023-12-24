@@ -3,11 +3,8 @@ import { User } from "../models/User";
 import { Role } from "../models/Role";
 import { TimeFrame } from "../models/TimeFrame";
 import { TechnicalResource } from "../models/TechnicalResource";
-import { Strategy } from "../models/Strategy";
-import { createStrategy } from "../controllers/strategyController";
-import { Request, Response } from "express";
-import express from "express";
-import mockExpressRequest from "mock-express-request";
+import bcrypt from "bcrypt";
+
 
 const generateRandomNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -113,6 +110,14 @@ const userSeedData = [
     role_id: 2,
   },
 ];
+
+const hashPasswords = async () => {
+  for (let i = 0; i < userSeedData.length; i++) {
+    const user = userSeedData[i];
+    const hashedPassword = await bcrypt.hash(user.password, 10);
+    user.password = hashedPassword;
+  }
+};
 
 const strategySeedData = [
   {

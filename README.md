@@ -154,6 +154,8 @@ localhost:3000/user
 > > > "nickname":"your nickname"  
 > > > }
 
+###### Endpoints para strategy:
+
 localhost:3000/strategy
 
 > /getMyStrategies TIPO: **GET**: ver tus estrategias como usuario
@@ -252,71 +254,86 @@ localhost:3000/role
 
 localhost:3000/technicalresource
 
-> /register TIPO: **POST** : crear nuevos tatuadores
+> /createTechnicalResource TIPO: **POST** : crear nuevos indicadores tecnicos
 >
 > > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de super admin.  
 > > BODY
 > >
 > > > {  
-> > > "tattoo_artist":"tatto artists name",  
-> > > "password":"your password"
+> > > "name":" name",  
+> > > "description":"your description"
 > > > }
 
-> /login TIPO: **POST** : login para tatuadores
+> /updateTechnicalResource TIPO: **PUT** : Modificar indicador
 >
-> > AUTH: nada  
+> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de super admin.   
 > > BODY
 > >
 > > > {  
-> > > "tattoo_artist":"tatto artists name",  
-> > > "password":"your password"
+> > > "name":"name",  
+> > > "description":"your description"
+> > > "id":"technical id"
 > > > }
 
-> /myAppointments TIPO: **GET** : ver tus citas como tatuador
+> /getAllTechnicalResources TIPO: **GET** : ver todos los indicadores
 >
-> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de level admin o super admin 
+> > AUTH: token tipo bearer obtenido al hacer el login
 > > BODY: nada
 
-> /all TIPO: **GET** : ver a todos los tatuadores
+> /deleteTechnicalResource TIPO: **DELETE** : borrar indicador
 > >
-> > AUTH: token tipo bearer obtenido al hacer el login  
-> > BODY: nada
+> > AUTH: token tipo bearer obtenido al hacer el login, minimo super admin 
+> > BODY
+> >
+> > > {
+> > > "id": "technical id"
+> > > }
 
-###### Endpoints para works:
+###### Endpoints para times frames:
 
-localhost:4004/tattoo
+localhost:3000/timeframe
 
-> /create TIPO: **POST** : crear works
+> /createTimeFrame TIPO: **POST** : crear time frame
 >
 > > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de level admin o super admin  
 > > BODY
 > >
 > > > {  
-> > >  "twork": ENUM "tattoo" or "piercing",   
-> > >  "description": "work description",   
-> > >  "price": price
+> > >  "time_frame": "time frame"
 > > > }
 
-> /update TIPO: **PUT** : actualizar work
+> /getAllTimeFrames TIPO: **GET** : recuperar todos los times frames
 >
-> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de level admin o super admin   
-> > BODY
-> >
-> > > { 
-> > > "id": tattoo_id,
-> > > "work": work_id,  
-> > > "description": "work description",   
-> > > "price": price  
-> > > }
+> > AUTH: token tipo bearer obtenido al hacer el login   
+> > BODY: nada
 
-> /delete TIPO: **DELETE** : Eliminar un tatuaje
+> /deleteTimeFrame TIPO: **DELETE** : Eliminar un time frame
 >
-> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de level admin o super admin  
+> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de level super admin  
 > > BODY: 
 > >
 > > > {  
-> > >  "id": tattoo_id,  
+> > >  "id": time_frame_id,  
 > > > }
+
+###### Endpoints para super admin:
+
+localhost:3000/superadmin
+
+> /update TIPO: **PUT** : Modificar role de usuario
+>
+> > AUTH: token tipo bearer obtenido al hacer el login, solo sirve el de super admin.   
+> > BODY
+> >
+> > > {  
+> > > "role_id":"role id"
+> > > "id":"user id"
+> > > }
+
+> /all TIPO: **GET** : recuperar todos los usuarios
+>
+> > AUTH: token tipo bearer obtenido al hacer el login minimo super admin   
+> > BODY: nada
 
 ## Aqui las diferentes vistas de la aplicacion:
 
