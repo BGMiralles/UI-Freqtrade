@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "<div className="" />
-<FlipsCards></FlipsCards>.css";
+import "./FlipsCards.css";
 
 export const FlipCards = () => {
   const [isFlipped1, setIsFlipped1] = useState(false);

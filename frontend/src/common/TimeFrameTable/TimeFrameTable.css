@@ -2,13 +2,13 @@
   height: 100vh;
   width: 100vw;
   position: relative;
-  overflow-y:   hidden;
+  overflow-y:   auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
-  margin-top: 5em;
+  margin-top: 7em;
 }
 
 .timesTable {
@@ -18,7 +18,7 @@
   font-family: monospace;
   font-size: 1.2em;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 20em;
   background-color: black;
 }
 
