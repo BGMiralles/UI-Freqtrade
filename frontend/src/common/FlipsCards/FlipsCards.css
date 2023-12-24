@@ -11,12 +11,7 @@
   overflow: hidden;
 }
 
-.tattooInfo {
-  color: gold;
-  font-size: 5em;
-  margin-top: 1em;
-  overflow: hidden;
-}
+
 
 .stylesInfo {
   color: white;
@@ -48,7 +43,7 @@
 .image-tattoo {
   max-width: 100%;
   height: auto;
-  border: solid 2px gold;
+  border: solid 2px #4caf50;
   transition: 0.4s;
   transform-style: preserve-3d;
 }

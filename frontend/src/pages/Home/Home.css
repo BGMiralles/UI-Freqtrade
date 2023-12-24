@@ -1,6 +1,6 @@
 body {
   --sb-track-color: #000;
-  --sb-thumb-color: #b9de12;
+  --sb-thumb-color: #4caf50;
   --sb-size: 10px;
 
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);

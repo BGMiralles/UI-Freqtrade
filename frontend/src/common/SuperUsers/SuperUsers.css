@@ -1,17 +1,14 @@
-/* FILEPATH: /f:/USUARIO/Desktop/VSC/Bootcamp/UI-Freqtrade/frontend/src/common/SuperUsers/SuperUsers.css */
-
-/* Estilos para el elemento de clase "superuser" */
 .usersDesign {
     height: 100vh;
   width: 100vw;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
-  margin-top: 5em;
+  margin-top: 8em;
 }
 
 .usersTable {
@@ -26,6 +23,7 @@
 }
 
 .usersHeader{
+  margin-top: 15em;
     background-color: black;
     color: white;
     text-align: center;

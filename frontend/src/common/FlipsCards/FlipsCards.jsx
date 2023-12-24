@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./TattooStyles.css";
+import "./FlipsCards.css";
 
-export const TattooStyles = () => {
+export const FlipCards = () => {
   const [isFlipped1, setIsFlipped1] = useState(false);
   const [isFlipped2, setIsFlipped2] = useState(false);
   const [isFlipped3, setIsFlipped3] = useState(false);

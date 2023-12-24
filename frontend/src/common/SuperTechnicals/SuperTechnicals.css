@@ -2,13 +2,13 @@
     height: 100vh;
     width: 100vw;
     position: relative;
-    overflow-y:   hidden;
+    overflow-y:   auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: black;
-    margin-top: 5em;
+    margin-top: 6em;
   }
   
   .technTable {
