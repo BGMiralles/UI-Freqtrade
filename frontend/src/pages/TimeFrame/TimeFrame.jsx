@@ -3,7 +3,9 @@ import { TimeFramesTable } from "../../common/TimeFrameTable/TimeFrameTable";
 
 export const TimeFrame = () => {
   return (
+    <div>
       <TimeFramesTable />
+    </div>
   );
 };
 
