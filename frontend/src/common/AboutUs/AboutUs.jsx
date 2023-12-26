@@ -2,13 +2,14 @@ import React from "react";
 import "./AboutUs.css";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import logo from "../../img/logo.png";
 
 export const AboutUs = () => {
   const navigate = useNavigate();
   return (
     <div className="aboutUsDesign">
       <div className="aboutUsDiv">
-        <img className="aboutUsLogo" src="../src/img/logo.png" alt="Logo" />
+        <img className="aboutUsLogo" src={logo} alt="Logo" />
         <div className="textAboutUs">
           <p>
             <span className="colourText-green">

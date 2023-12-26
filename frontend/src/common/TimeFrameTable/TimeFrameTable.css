@@ -1,8 +1,7 @@
 .timesDesign {
   height: 100vh;
   width: 100vw;
-  position: relative;
-  overflow-y:   auto;
+  position:relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,4 +25,8 @@
     background-color: black;
     color: white;
     text-align: center;
+}
+
+.new{
+  width: 28em;
 }

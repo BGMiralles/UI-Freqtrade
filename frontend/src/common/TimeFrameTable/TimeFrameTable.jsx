@@ -68,7 +68,7 @@ export const TimeFramesTable = () => {
         </tbody>
       </table>
 
-      <button onClick={() => setNewFrameVisible(!isNewFrameVisible)}>New Time Frame</button>
+      <button className="new" onClick={() => setNewFrameVisible(!isNewFrameVisible)}>New Time Frame</button>
 
       {isNewFrameVisible && (
         <div>
@@ -78,7 +78,7 @@ export const TimeFramesTable = () => {
             value={newTimeFrame}
             onChange={(e) => setNewTimeFrame(e.target.value)}
           />
-          <button onClick={handleCreateNewFrame}>Create</button>
+          <button className="new" onClick={handleCreateNewFrame}>Create</button>
         </div>
       )}
     </div>

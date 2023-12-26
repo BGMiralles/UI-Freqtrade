@@ -1,5 +1,6 @@
 import React from "react";
 import "./Information.css";
+import logoIg from "../../img/logo-ig.png";
 
 export const Information = () => {
   return (
@@ -8,7 +9,7 @@ export const Information = () => {
         <div className="informationText">
           CONTACT
           <a href="https://www.instagram.com/bgmiralles/">
-            <img className="IgLogo" src={"../src/img/logo-ig.png"} alt="Logo" />
+            <img className="IgLogo" src={logoIg} alt="Logo" />
           </a>
         </div>
       </div>

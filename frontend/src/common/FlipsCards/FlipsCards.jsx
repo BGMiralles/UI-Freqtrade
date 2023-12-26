@@ -22,7 +22,6 @@ export const FlipCards = () => {
     <div className="tattooStyles">
       <div
         className="background-banner stylesBanner"
-        style={{ backgroundImage: `url('../../img/home-example.jpg')` }}
       >
         <div className="image-container">
           <div
