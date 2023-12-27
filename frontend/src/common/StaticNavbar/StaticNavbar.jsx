@@ -6,6 +6,7 @@ import "./StaticNavbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, userData } from "../../pages/userSlice";
 import { useNavigate } from "react-router-dom";
+import logo from "../../img/logo.png";
 
 export const StaticNavbar = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const StaticNavbar = () => {
     <Navbar expand="lg" className="bg-dark navbarStatic fixed-top">
       <Container className="container-navbar">
         <Navbar.Brand>
-          <img className="headerLogo" src={"../src/img/logo.png"} alt="Logo" />
+          <img className="headerLogo" src={logo} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Brand className="text-white text-navbar-title" href="/">
           UI <span className="blueColour">FREQTRADE</span>
@@ -36,7 +37,7 @@ export const StaticNavbar = () => {
               ABOUT US
             </Nav.Link>
             {rdxCredentials?.credentials ? (
-              (rdxCredentials.data.role === 2 || rdxCredentials.data.role === "super_admin") ? (
+              (rdxCredentials.data && rdxCredentials.data?.role === 2 || rdxCredentials.data?.role === "super_admin") ? (
                 <>
                   <Nav.Link
                     className="text-navbar items-navbar"
@@ -72,7 +73,7 @@ export const StaticNavbar = () => {
                     className="text-navbar items-navbar"
                     href="/profile"
                   >
-                    {rdxCredentials.data.name.toUpperCase()}
+                    {rdxCredentials.data?.name.toUpperCase()}
                   </Nav.Link>
                   <div onClick={logOutMe}>
                     <Nav.Link className="text-navbar items-navbar-logout" href="/">
@@ -104,7 +105,7 @@ export const StaticNavbar = () => {
                     className="text-navbar items-navbar"
                     href="/profile"
                   >
-                    {rdxCredentials.data.name.toUpperCase()}
+                    {rdxCredentials.data?.name.toUpperCase()}
                   </Nav.Link>
                   <div onClick={logOutMe}>
                     <Nav.Link className="text-navbar items-navbar-logout" href="/">

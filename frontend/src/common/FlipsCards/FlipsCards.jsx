@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "./FlipsCards.css";
+import texto1 from "../../img/texto-1.png";
+import texto2 from "../../img/texto-2.png";
+import strategy1 from "../../img/strategy.png";
+import strategy2 from "../../img/strategy2.png";
 
 export const FlipCards = () => {
   const [isFlipped1, setIsFlipped1] = useState(false);
@@ -32,7 +36,7 @@ export const FlipCards = () => {
             <img
               className="image-tattoo"
               src={
-                isFlipped1 ? "./src/img/texto-1.JPG" : "./src/img/strategy.JPG"
+                isFlipped1 ? texto1 : strategy1
               }
               alt={`Tattoo ${isFlipped1 ? "1B" : "1A"}`}
             />
@@ -44,7 +48,7 @@ export const FlipCards = () => {
             <img
               className="image-tattoo"
               src={
-                isFlipped2 ? "./src/img/texto-2.JPG" : "./src/img/strategy2.JPG"
+                isFlipped2 ? texto2 : strategy2
               }
               alt={`Tattoo ${isFlipped2 ? "2B" : "2A"}`}
             />
