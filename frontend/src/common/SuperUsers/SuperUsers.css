@@ -1,5 +1,5 @@
 .usersDesign {
-    height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   position: relative;
   overflow-y: hidden;
@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  margin-top: 8em;
+  margin-top: 1em;
 }
 
 .usersTable {
@@ -23,8 +23,9 @@
 }
 
 .usersHeader{
-  margin-top: 15em;
+  margin-top: 2em;
     background-color: black;
     color: white;
     text-align: center;
 }
+
