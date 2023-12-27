@@ -1,11 +1,12 @@
 import React from "react";
 import "./AboutText.css";
+import logo from "../../img/logo.png";
 
 export const About = () => {
   return (
     <div className="aboutDesign">
       <div className="aboutDiv">
-          <img className="aboutLogo" src="../src/img/logo.png" alt="Logo" />
+          <img className="aboutLogo" src={logo} />
           <div className="textAbout">
             <p>
               <span className="colourText-green">
