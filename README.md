@@ -49,7 +49,7 @@ TypeScript, node, express, TypeOrm, ThunderClient, HTML5, CSS3, Bootstrap, React
   ​
 
 ### Instrucciones
-1. Accede a la url del frontend: `URL`.
+1. Accede a la url del frontend: `https://prueba001.daexxdrayjb6b.amplifyapp.com/`.
 
 2. Clona el reposito , UI-Freqtrade, en tu máquina local usando el siguiente comando: `git clone [https://github.com/BGMiralles/UI-Freqtrade.git]`.
 
